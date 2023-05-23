@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mothering_app/otp.dart';
+import './register.dart';
 
 class LoginPage extends StatelessWidget {
   static const routeName = '/Login-Page';
@@ -11,7 +13,7 @@ class LoginPage extends StatelessWidget {
         children: [
           const SizedBox(height: 100.0),
           Image.asset(
-            'assets/images/Mothering_logo.png', // Replace with your top custom image path
+            'assets/images/Mothering_logo.png',
             width: 80.0,
             height: 80.0,
           ),
@@ -54,7 +56,10 @@ class LoginPage extends StatelessWidget {
           const SizedBox(height: 25.0),
           ElevatedButton(
             onPressed: () {
-              // Perform login action
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OtpScreen()),
+              );
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
@@ -81,7 +86,7 @@ class LoginPage extends StatelessWidget {
           const SizedBox(height: 5.0),
           ElevatedButton.icon(
             onPressed: () {
-              // Perform login action
+              
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(

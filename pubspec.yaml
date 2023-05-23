@@ -64,6 +64,8 @@ flutter:
     - assets/images/Mothering_Text.png
     - assets/images/Google_logo.png
     - assets/images/OR_dashed_line.png
+    - assets/images/MSocial_logo.png
+    - assets/images/Play_area.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

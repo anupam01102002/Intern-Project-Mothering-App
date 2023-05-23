@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import './login_page.dart';
+// import './register.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         '/home': (context) => LoginPage(),
+        // RegisterPage.routeName: (ctx) => RegisterPage()
       },
     );
   }
