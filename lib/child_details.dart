@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
-class ChildDetails extends StatelessWidget {
+class ChildDetails extends StatefulWidget {
+  @override
+  State<ChildDetails> createState() => _ChildDetailsState();
+}
+
+class _ChildDetailsState extends State<ChildDetails> {
   final Color backgroundColor = const Color(0xFFF3FCFF);
+
   final Color borderColor = Colors.blue;
+
   final Color buttonColor = Colors.blue;
+
   final TextStyle boldTextStyle = TextStyle(fontWeight: FontWeight.bold);
+
+  bool status = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +54,27 @@ class ChildDetails extends StatelessWidget {
                           color: Color.fromRGBO(0, 176, 240, 1),
                           fontWeight: FontWeight.normal),
                     ),
-                    Switch(
-                      value: true,
-                      onChanged: (value) {
-                        value = true;
+                    const SizedBox(width: 10.0),
+                    FlutterSwitch(
+                      width: 80.0,
+                      height: 30.0,
+                      valueFontSize: 16.0,
+                      toggleSize: 20.0,
+                      inactiveSwitchBorder: ,
+                      value: status,
+                      borderRadius: 30.0,
+                      padding: 4.0,
+                      //showOnOff: true,
+                      inactiveColor: Colors.white,
+                      activeColor: Colors.white,
+                      
+                      onToggle: (val) {
+                        setState(() {
+                          status = val;
+                        });
                       },
                     ),
+                    const SizedBox(width: 10.0),
                     const Text(
                       'GIRL',
                       style: TextStyle(
@@ -184,6 +210,65 @@ class ChildDetails extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class SwitchExample extends StatefulWidget {
+  const SwitchExample({super.key});
+
+  @override
+  State<SwitchExample> createState() => _SwitchExampleState();
+}
+
+class _SwitchExampleState extends State<SwitchExample> {
+  bool light = true;
+
+  @override
+  Widget build(BuildContext context) {
+    final MaterialStateProperty<Color?> trackColor =
+        MaterialStateProperty.resolveWith<Color?>(
+      (Set<MaterialState> states) {
+        // Track color when the switch is selected.
+        if (states.contains(MaterialState.selected)) {
+          return Colors.white;
+        }
+        // Otherwise return null to set default track color
+        // for remaining states such as when the switch is
+        // hovered, focused, or disabled.
+        return null;
+      },
+    );
+    final MaterialStateProperty<Color?> overlayColor =
+        MaterialStateProperty.resolveWith<Color?>(
+      (Set<MaterialState> states) {
+        // Material color when switch is selected.
+        if (states.contains(MaterialState.selected)) {
+          return Colors.blue.withOpacity(0.54);
+        }
+        // Material color when switch is disabled.
+        if (states.contains(MaterialState.disabled)) {
+          return Colors.grey.shade400;
+        }
+        // Otherwise return null to set default material color
+        // for remaining states such as when the switch is
+        // hovered, or focused.
+        return null;
+      },
+    );
+
+    return Switch(
+      // This bool value toggles the switch.
+      value: light,
+      overlayColor: overlayColor,
+      trackColor: trackColor,
+      thumbColor: const MaterialStatePropertyAll<Color>(Colors.black),
+      onChanged: (bool value) {
+        // This is called when the user toggles the switch.
+        setState(() {
+          light = value;
+        });
+      },
     );
   }
 }

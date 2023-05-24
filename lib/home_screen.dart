@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './child_details.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class HomeScreen extends StatelessWidget {
   final Color primaryColor = const Color(0xFF7CDAFC);
@@ -27,12 +28,7 @@ class HomeScreen extends StatelessWidget {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ChildDetails()),
-                );
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.notifications),
@@ -54,10 +50,166 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: const Center(
-          child: Text(
-            'Welcome to my Flutter app!',
-            style: TextStyle(fontSize: 24),
+        body: Center(
+          child: Column(
+            children: [
+              Container(
+                height: 40,
+                width: double.infinity,
+                color: Colors.white,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChildDetails()),
+                    );
+                  },
+                  child: const Text(
+                    '+ Add Child',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: Container(
+                  width: double.infinity,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Colors.blue,
+                      width: 2.0,
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Row(
+                          children: <Widget>[
+                            Column(
+                              children: [
+                                Container(
+                                  height: 25,
+                                  width: 4,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(width: 8.0),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const <Widget>[
+                                Text(
+                                  'Ideal Height',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Text(
+                                  '80.2 - 95.2 cm',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: 25,
+                              width: 4,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                            ),
+                            const SizedBox(width: 8.0),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const <Widget>[
+                                Text(
+                                  'Ideal Height',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Text(
+                                  '80.2 - 95.2 cm',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            'Aayan is 3 Years, 2 Month Old',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 25,
+                            width: 95,
+                            decoration: const BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(15),
+                                topLeft: Radius.circular(15),
+                              ),
+                            ),
+                            child: const Text(
+                              '26 Months',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                height: 300,
+                width: double.infinity,
+                child: Image.asset(
+                  'assets/images/Add_1.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // const Text(
+              //   'Welcome to my Flutter app!',
+              //   style: TextStyle(fontSize: 24),
+              // ),
+            ],
           ),
         ),
         bottomNavigationBar: ClipRRect(

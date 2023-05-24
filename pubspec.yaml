@@ -35,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  persistent_bottom_nav_bar_v2: ^4.2.8
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +68,7 @@ flutter:
     - assets/images/OR_dashed_line.png
     - assets/images/MSocial_logo.png
     - assets/images/Play_area.png
+    - assets/images/Add_1.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
