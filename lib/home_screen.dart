@@ -3,20 +3,14 @@ import './child_details.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class HomeScreen extends StatelessWidget {
-  final Color primaryColor = const Color(0xFF7CDAFC);
-  final Color iconColor = Colors.white;
+  // final Color primaryColor = const Color(0xFF7CDAFC);
+  // final Color iconColor = Colors.white;
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Flutter App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color(0xFF7CDAFC),
-          secondary: const Color(0xFFFFC107),
-        ),
-      ),
-      home: Scaffold(
+  final controller = PersistentTabController(initialIndex: 0);
+
+  List<Widget> _buildScreen(BuildContext context) {
+    return [
+      Scaffold(
         appBar: AppBar(
           title: Text('My App'),
           leading: IconButton(
@@ -154,23 +148,24 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'Aayan is 3 Years, 2 Month Old',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
+                      Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Aayan is 3 Years, 2 Month Old',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 12,
+                          ],
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Container(
                             height: 25,
@@ -205,55 +200,98 @@ class HomeScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              // const Text(
-              //   'Welcome to my Flutter app!',
-              //   style: TextStyle(fontSize: 24),
-              // ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.black,
-            unselectedItemColor: Colors.lightBlue,
-            selectedItemColor: Colors.lightBlue,
-            items: [
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.shop),
-                label: 'Shop',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/Play_area.png',
-                  width: 32,
-                  height: 32,
-                ),
-                label: 'Book',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/MSocial_logo.png',
-                  width: 32,
-                  height: 32,
-                ),
-                label: 'Social',
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.book),
-                label: 'Magazine',
-              ),
             ],
           ),
         ),
       ),
+      Text('a'),
+      Text('d'),
+      Text('ddsa'),
+      Text('dataad'),
+    ];
+  }
+
+  List<PersistentBottomNavBarItem> _navBarItem() {
+    return [
+      PersistentBottomNavBarItem(
+        icon: Image.asset(
+          'assets/images/Home_active.png',
+          width: 32,
+          height: 32,
+        ),
+        inactiveIcon: Image.asset(
+          'assets/images/Home_inactive.png',
+          width: 32,
+          height: 32,
+        ),
+        title: "Home",
+        activeColorPrimary: Colors.white,
+        inactiveColorPrimary: Colors.white,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Image.asset(
+          'assets/images/Shop_active.png',
+          width: 32,
+          height: 32,
+        ),
+        inactiveIcon: Image.asset(
+          'assets/images/Shop_inactive.png',
+          width: 32,
+          height: 32,
+        ),
+        title: "Shop",
+        activeColorPrimary: Colors.white,
+        inactiveColorPrimary: Colors.white,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Image.asset(
+          'assets/images/Play_area.png',
+          width: 32,
+          height: 32,
+        ),
+        title: "Book \n your Play area",
+        activeColorPrimary: Colors.white,
+        inactiveColorPrimary: Colors.white,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Image.asset(
+          'assets/images/MSocial_logo.png',
+          width: 32,
+          height: 32,
+        ),
+        title: "MSocial",
+        activeColorPrimary: Colors.white,
+        inactiveColorPrimary: Colors.white,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Image.asset(
+          'assets/images/Shop_active.png',
+          width: 32,
+          height: 32,
+        ),
+        inactiveIcon: Image.asset(
+          'assets/images/Shop_inactive.png',
+          width: 32,
+          height: 32,
+        ),
+        title: "Magazine",
+        activeColorPrimary: Colors.white,
+        inactiveColorPrimary: Colors.white,
+      ),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return PersistentTabView(
+      context,
+      screens: _buildScreen(context),
+      items: _navBarItem(),
+      backgroundColor: Color.fromRGBO(124, 218, 252, 1),
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.circular(30),
+      ),
+      navBarStyle: NavBarStyle.style15,
     );
   }
 }
