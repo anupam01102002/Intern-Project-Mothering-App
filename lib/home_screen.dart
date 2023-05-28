@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   List<Widget> _buildScreen(BuildContext context) {
     return [
       Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -671,6 +672,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color.fromRGBO(243, 252, 255, 1),
         appBar: AppBar(
           title: Row(
@@ -786,7 +788,7 @@ class HomeScreen extends StatelessWidget {
                           backgroundColor: Colors.white,
                           // Add profile icon image here
                           // backgroundImage: AssetImage('assets/profile_image.png'),
-                          // Use the above line if you have a custom profile image
+                          // Use the above line for a custom profile image
                           child: Icon(
                             Icons.person,
                             size: 30,

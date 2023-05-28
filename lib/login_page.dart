@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mothering_app/otp.dart';
-import './register.dart';
+// import './register.dart';
 
 class LoginPage extends StatelessWidget {
   static const routeName = '/Login-Page';
@@ -8,16 +8,23 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
       body: Column(
         children: [
-          const SizedBox(height: 100.0),
+          SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.2),
           Image.asset(
             'assets/images/Mothering_logo.png',
             width: 80.0,
             height: 80.0,
           ),
-          const SizedBox(height: 50.0),
+          SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.06),
           const Text(
             'LOGIN',
             style: TextStyle(
@@ -26,7 +33,10 @@ class LoginPage extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 30.0),
+          SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.04),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 50.0),
             child: Container(
@@ -53,7 +63,10 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 25.0),
+          SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.03),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
@@ -77,17 +90,21 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 5.0),
+          SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.01),
           Image.asset(
             'assets/images/OR_dashed_line.png',
             width: 500,
             height: 50.0,
           ),
-          const SizedBox(height: 5.0),
+          SizedBox(
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) *
+                  0.01),
           ElevatedButton.icon(
-            onPressed: () {
-              
-            },
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50.0),

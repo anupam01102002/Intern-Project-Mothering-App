@@ -5,17 +5,21 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 100.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.12),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: 40,
-                  height: 30,
+                  width: (MediaQuery.of(context).size.width * 0.1),
+                  height: (MediaQuery.of(context).size.width * 0.09),
                   color: Colors.white,
                 ),
                 const SizedBox(width: 10),
@@ -28,7 +32,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 30.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.04),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -49,7 +56,10 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 3.0),
+                SizedBox(
+                    height: (MediaQuery.of(context).size.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.008),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -80,7 +90,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.03),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -101,7 +114,10 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 3.0),
+                SizedBox(
+                    height: (MediaQuery.of(context).size.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.008),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -132,7 +148,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.03),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -153,7 +172,10 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 3.0),
+                SizedBox(
+                    height: (MediaQuery.of(context).size.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.008),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -184,7 +206,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.03),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -205,7 +230,10 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 3.0),
+                SizedBox(
+                    height: (MediaQuery.of(context).size.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.008),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -236,7 +264,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 25.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.03),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -260,7 +291,10 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 160.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.01),
             const Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,

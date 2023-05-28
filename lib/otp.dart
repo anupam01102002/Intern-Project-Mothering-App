@@ -5,17 +5,23 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 100.0),
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.17),
             Image.asset(
               'assets/images/Mothering_logo.png',
               width: 80.0,
               height: 80.0,
             ),
-            const SizedBox(height: 30.0),
+             SizedBox(height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.06),
             const Text(
               'Enter OTP',
               style: TextStyle(
@@ -24,7 +30,9 @@ class OtpScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 30.0),
+           SizedBox(height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.04),
             Container(
               width: 200,
               child: Row(
@@ -37,7 +45,9 @@ class OtpScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 30.0),
+            SizedBox(height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.05),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -112,8 +122,7 @@ class OTPDigitTextField extends StatelessWidget {
           counterText: "",
           hintText: "-",
           hintStyle: TextStyle(fontSize: 24),
-          border:
-           OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5.0),
             borderSide: BorderSide(
               width: 2.0,

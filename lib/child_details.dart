@@ -10,136 +10,135 @@ class ChildDetails extends StatelessWidget {
 
   final controller = PersistentTabController(initialIndex: 0);
 
- 
-
   List<Widget> _buildScreen(BuildContext context) {
     return [
-    //   Scaffold(
-    //   backgroundColor: backgroundColor,
-    //   body: Center(
-    //     child: Padding(
-    //       padding: const EdgeInsets.all(16.0),
-    //       child: Column(
-    //         mainAxisAlignment: MainAxisAlignment.center,
-    //         children: [
-    //           Text(
-    //             'Enter your child details to have',
-    //             style: boldTextStyle,
-    //           ),
-    //           const SizedBox(height: 4.0),
-    //           const Text(
-    //             'personalized shopping and parenting ',
-    //           ),
-    //           const SizedBox(height: 4.0),
-    //           const Text(
-    //             'experience.',
-    //           ),
-    //           const SizedBox(height: 50.0),
-    //           Row(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: const [
-    //               Text(
-    //                 'BOY',
-    //                 style: TextStyle(
-    //                     color: Color.fromRGBO(0, 176, 240, 1),
-    //                     fontWeight: FontWeight.normal),
-    //               ),
-    //               //SwitchExample(),
-    //               Text(
-    //                 'GIRL',
-    //                 style: TextStyle(
-    //                     color: Color.fromRGBO(0, 176, 240, 1),
-    //                     fontWeight: FontWeight.bold),
-    //               ),
-    //             ],
-    //           ),
-    //           const SizedBox(height: 24.0),
-    //           Column(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               Container(
-    //                 width: 300, // Adjust the width as needed
-    //                 height: 40, // Adjust the height as needed
-    //                 decoration: BoxDecoration(
-    //                   borderRadius: BorderRadius.circular(50.0),
-    //                   border: Border.all(color: Colors.blue),
-    //                   color: Colors.white,
-    //                 ),
-    //                 child: const TextField(
-    //                   decoration: InputDecoration(
-    //                     border: InputBorder.none,
-    //                     hintText: 'Date of Birth',
-    //                     hintStyle: TextStyle(
-    //                       color: Color.fromRGBO(150, 150, 150, 1),
-    //                       fontSize: 16,
-    //                     ),
-    //                     contentPadding: EdgeInsets.all(12.0),
-    //                   ),
-    //                   keyboardType: TextInputType.datetime,
-    //                   style: TextStyle(
-    //                     color: Colors.black,
-    //                   ),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //           const SizedBox(height: 24.0),
-    //           Column(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               Container(
-    //                 width: 300, // Adjust the width as needed
-    //                 height: 40, // Adjust the height as needed
-    //                 decoration: BoxDecoration(
-    //                   borderRadius: BorderRadius.circular(50.0),
-    //                   border: Border.all(color: Colors.blue),
-    //                   color: Colors.white,
-    //                 ),
-    //                 child: const TextField(
-    //                   decoration: InputDecoration(
-    //                     border: InputBorder.none,
-    //                     hintText: 'Child Name',
-    //                     hintStyle: TextStyle(
-    //                       color: Color.fromRGBO(150, 150, 150, 1),
-    //                       fontSize: 16,
-    //                     ),
-    //                     contentPadding: EdgeInsets.all(12.0),
-    //                   ),
-    //                   keyboardType: TextInputType.name,
-    //                   style: TextStyle(
-    //                     color: Colors.black,
-    //                   ),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //           const SizedBox(height: 35.0),
-    //           ElevatedButton(
-    //             onPressed: () {
-    //               // function
-    //             },
-    //             style: ElevatedButton.styleFrom(
-    //               shape: RoundedRectangleBorder(
-    //                 borderRadius: BorderRadius.circular(50.0),
-    //               ),
-    //               padding: const EdgeInsets.symmetric(
-    //                   vertical: 5.0, horizontal: 40.0),
-    //               primary: const Color.fromRGBO(0, 176, 240, 1),
-    //             ),
-    //             child: const Text(
-    //               'SUBMIT',
-    //               style: TextStyle(
-    //                 fontSize: 16,
-    //                 color: Colors.white,
-    //               ),
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // ),
+      //   Scaffold(
+      //   backgroundColor: backgroundColor,
+      //   body: Center(
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(16.0),
+      //       child: Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Text(
+      //             'Enter your child details to have',
+      //             style: boldTextStyle,
+      //           ),
+      //           const SizedBox(height: 4.0),
+      //           const Text(
+      //             'personalized shopping and parenting ',
+      //           ),
+      //           const SizedBox(height: 4.0),
+      //           const Text(
+      //             'experience.',
+      //           ),
+      //           const SizedBox(height: 50.0),
+      //           Row(
+      //             mainAxisAlignment: MainAxisAlignment.center,
+      //             children: const [
+      //               Text(
+      //                 'BOY',
+      //                 style: TextStyle(
+      //                     color: Color.fromRGBO(0, 176, 240, 1),
+      //                     fontWeight: FontWeight.normal),
+      //               ),
+      //               //SwitchExample(),
+      //               Text(
+      //                 'GIRL',
+      //                 style: TextStyle(
+      //                     color: Color.fromRGBO(0, 176, 240, 1),
+      //                     fontWeight: FontWeight.bold),
+      //               ),
+      //             ],
+      //           ),
+      //           const SizedBox(height: 24.0),
+      //           Column(
+      //             mainAxisAlignment: MainAxisAlignment.center,
+      //             children: [
+      //               Container(
+      //                 width: 300, // Adjust the width as needed
+      //                 height: 40, // Adjust the height as needed
+      //                 decoration: BoxDecoration(
+      //                   borderRadius: BorderRadius.circular(50.0),
+      //                   border: Border.all(color: Colors.blue),
+      //                   color: Colors.white,
+      //                 ),
+      //                 child: const TextField(
+      //                   decoration: InputDecoration(
+      //                     border: InputBorder.none,
+      //                     hintText: 'Date of Birth',
+      //                     hintStyle: TextStyle(
+      //                       color: Color.fromRGBO(150, 150, 150, 1),
+      //                       fontSize: 16,
+      //                     ),
+      //                     contentPadding: EdgeInsets.all(12.0),
+      //                   ),
+      //                   keyboardType: TextInputType.datetime,
+      //                   style: TextStyle(
+      //                     color: Colors.black,
+      //                   ),
+      //                 ),
+      //               ),
+      //             ],
+      //           ),
+      //           const SizedBox(height: 24.0),
+      //           Column(
+      //             mainAxisAlignment: MainAxisAlignment.center,
+      //             children: [
+      //               Container(
+      //                 width: 300, // Adjust the width as needed
+      //                 height: 40, // Adjust the height as needed
+      //                 decoration: BoxDecoration(
+      //                   borderRadius: BorderRadius.circular(50.0),
+      //                   border: Border.all(color: Colors.blue),
+      //                   color: Colors.white,
+      //                 ),
+      //                 child: const TextField(
+      //                   decoration: InputDecoration(
+      //                     border: InputBorder.none,
+      //                     hintText: 'Child Name',
+      //                     hintStyle: TextStyle(
+      //                       color: Color.fromRGBO(150, 150, 150, 1),
+      //                       fontSize: 16,
+      //                     ),
+      //                     contentPadding: EdgeInsets.all(12.0),
+      //                   ),
+      //                   keyboardType: TextInputType.name,
+      //                   style: TextStyle(
+      //                     color: Colors.black,
+      //                   ),
+      //                 ),
+      //               ),
+      //             ],
+      //           ),
+      //           const SizedBox(height: 35.0),
+      //           ElevatedButton(
+      //             onPressed: () {
+      //               // function
+      //             },
+      //             style: ElevatedButton.styleFrom(
+      //               shape: RoundedRectangleBorder(
+      //                 borderRadius: BorderRadius.circular(50.0),
+      //               ),
+      //               padding: const EdgeInsets.symmetric(
+      //                   vertical: 5.0, horizontal: 40.0),
+      //               primary: const Color.fromRGBO(0, 176, 240, 1),
+      //             ),
+      //             child: const Text(
+      //               'SUBMIT',
+      //               style: TextStyle(
+      //                 fontSize: 16,
+      //                 color: Colors.white,
+      //               ),
+      //             ),
+      //           ),
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
       Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text('My App'),
           leading: IconButton(
@@ -334,6 +333,7 @@ class ChildDetails extends StatelessWidget {
         ),
       ),
       Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text('My App'),
           leading: IconButton(
@@ -372,7 +372,6 @@ class ChildDetails extends StatelessWidget {
         ),
       ),
       Scaffold(
-        
         body: Center(
           child: Text('Play Area'),
         ),
