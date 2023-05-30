@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './register.dart';
+import 'register.dart';
 
 class OtpScreen extends StatelessWidget {
   @override
@@ -19,7 +19,8 @@ class OtpScreen extends StatelessWidget {
               width: 80.0,
               height: 80.0,
             ),
-             SizedBox(height: (MediaQuery.of(context).size.height -
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
                         MediaQuery.of(context).padding.top) *
                     0.06),
             const Text(
@@ -30,7 +31,8 @@ class OtpScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-           SizedBox(height: (MediaQuery.of(context).size.height -
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
                         MediaQuery.of(context).padding.top) *
                     0.04),
             Container(
@@ -45,7 +47,8 @@ class OtpScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: (MediaQuery.of(context).size.height -
+            SizedBox(
+                height: (MediaQuery.of(context).size.height -
                         MediaQuery.of(context).padding.top) *
                     0.05),
             ElevatedButton(

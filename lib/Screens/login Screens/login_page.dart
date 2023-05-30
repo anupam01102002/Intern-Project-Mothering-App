@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mothering_app/otp.dart';
+import './otp.dart';
 // import './register.dart';
 
 class LoginPage extends StatelessWidget {

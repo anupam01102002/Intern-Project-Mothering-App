@@ -77,6 +77,7 @@ flutter:
     - assets/images/Shop_inactive.png
     - assets/images/Home_inactive.png
     - assets/images/Cloth_1.png
+    - assets/images/Profile_image.jpg
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

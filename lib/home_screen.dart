@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './Screens/Shopping Section Screen/shopping.dart';
+import './profile.dart';
 import './child_details.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:badges/badges.dart' as badges;
@@ -68,7 +70,13 @@ class HomeScreen extends StatelessWidget {
               badgeContent: Text('3'),
               child: IconButton(
                 icon: Icon(Icons.search),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ShoppingScreen()),
+                            );
+                },
               ),
             ),
             badges.Badge(
@@ -159,10 +167,19 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
-                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          ), // Replace with the desired icon
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyProfile()),
+                            );
+                          },
+                        )
                       ],
                     ),
                   ),
