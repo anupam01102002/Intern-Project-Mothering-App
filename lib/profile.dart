@@ -160,7 +160,9 @@ class _MyProfileState extends State<MyProfile> {
                       color: Colors.white,
                       shape: BoxShape.circle,
                       border: Border.all(
-                          width: 3, color: Color.fromRGBO(177, 177, 177, 1),),
+                        width: 3,
+                        color: Color.fromRGBO(177, 177, 177, 1),
+                      ),
                     ),
                     child: IconButton(
                       icon: Icon(

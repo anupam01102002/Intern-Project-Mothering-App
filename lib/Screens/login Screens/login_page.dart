@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './otp.dart';
 // import './register.dart';
-
 class LoginPage extends StatelessWidget {
   static const routeName = '/Login-Page';
 
