@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import './Screens/NavBarScreens/magazine.dart';
 import './Screens/NavBarScreens/msocial.dart';
 import './Screens/NavBarScreens/playArea.dart';
-import './Screens/NavBarScreens/shop.dart';
+import 'Screens/NavBarScreens/shop.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'Screens/NavBarScreens/home.dart';
 
-
 class HomeScreen extends StatelessWidget {
-
   final controller = PersistentTabController(initialIndex: 0);
 
   List<Widget> _buildScreen(BuildContext context) {

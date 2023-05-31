@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:mothering_app/CustomWidgets/productcard_1.dart';
+import 'package:mothering_app/CustomWidgets/subtitle.dart';
+import '../../CustomWidgets/custombutton.dart';
 
 class MotheringShopScreen extends StatelessWidget {
   @override
@@ -671,90 +674,18 @@ class MotheringShopScreen extends StatelessWidget {
               ),
             ),
             // Shop by Category Text
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Row(
-                children: <Widget>[
-                  Column(
-                    children: [
-                      Container(
-                        height: 35,
-                        width: 8,
-                        decoration: const BoxDecoration(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(width: 8.0),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: const <Widget>[
-                      Text(
-                        'Shop By Category',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            const Subtitle(
+                containerHeight: 35,
+                containerWidth: 8,
+                enterText: 'Shop By Category'),
             // Category Buttons
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    width: 170,
-                    height: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors
-                            .white, // Set the button's fill color to white
-                        onPrimary: Color.fromRGBO(0, 124, 168,
-                            1), // Set the button's text color to blue
-                        elevation: 2, // Set the button's elevation to 4
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              0), // Set the border radius to 30
-                        ),
-                        side: BorderSide(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ), // Set the button's border color to blue
-                      ),
-                      onPressed: () {
-                        // Handle button tap
-                      },
-                      child: Text('BOYS FASHION'),
-                    ),
-                  ),
-                  Container(
-                    width: 170,
-                    height: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Color.fromRGBO(0, 124, 168, 1),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              0), // Set the border radius to 30
-                        ),
-                        side: BorderSide(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                      onPressed: () {
-                        // Handle button tap
-                      },
-                      child: Text('GIRL FASHION'),
-                    ),
-                  ),
+                  CustomButton(buttonName: 'BOYS FASHION', onPressed: () {}),
+                  CustomButton(buttonName: 'GIRLS FASHION', onPressed: () {}),
                 ],
               ),
             ),
@@ -763,52 +694,8 @@ class MotheringShopScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    width: 170,
-                    height: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors
-                            .white, // Set the button's fill color to white
-                        onPrimary: Color.fromRGBO(0, 124, 168,
-                            1), // Set the button's text color to blue
-                        elevation: 2, // Set the button's elevation to 4
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              0), // Set the border radius to 30
-                        ),
-                        side: BorderSide(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ), // Set the button's border color to blue
-                      ),
-                      onPressed: () {
-                        // Handle button tap
-                      },
-                      child: Text('BEST SELLER'),
-                    ),
-                  ),
-                  Container(
-                    width: 170,
-                    height: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Color.fromRGBO(0, 124, 168, 1),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              0), // Set the border radius to 30
-                        ),
-                        side: BorderSide(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                      onPressed: () {
-                        // Handle button tap
-                      },
-                      child: Text('SALE 50%OFF'),
-                    ),
-                  ),
+                  CustomButton(buttonName: 'BEST SELLER', onPressed: () {}),
+                  CustomButton(buttonName: 'SALE 50%OFF', onPressed: () {}),
                 ],
               ),
             ),
@@ -817,85 +704,17 @@ class MotheringShopScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    width: 170,
-                    height: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Color.fromRGBO(0, 124, 168, 1),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0),
-                        ),
-                        side: BorderSide(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                      onPressed: () {
-                        // Handle button tap
-                      },
-                      child: Text('ETHICAL WEAR'),
-                    ),
-                  ),
-                  Container(
-                    width: 170,
-                    height: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        onPrimary: Color.fromRGBO(0, 124, 168, 1),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              0), // Set the border radius to 30
-                        ),
-                        side: BorderSide(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                      onPressed: () {
-                        // Handle button tap
-                      },
-                      child: Text('MOTHER\'S CHOICE'),
-                    ),
-                  ),
+                  CustomButton(buttonName: 'ETHICAL WEAR', onPressed: () {}),
+                  CustomButton(
+                      buttonName: 'MOTHER\'S CHOICE', onPressed: () {}),
                 ],
               ),
             ),
             //New Arrival Text
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Row(
-                children: <Widget>[
-                  Column(
-                    children: [
-                      Container(
-                        height: 35,
-                        width: 8,
-                        decoration: const BoxDecoration(
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(width: 8.0),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: const <Widget>[
-                      Text(
-                        'New Arrival',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(0, 124, 168, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            const Subtitle(
+                containerHeight: 35,
+                containerWidth: 8,
+                enterText: 'New Arrival'),
             //List View
             Padding(
               padding: const EdgeInsets.only(left: 16),
@@ -905,310 +724,34 @@ class MotheringShopScreen extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:
-                                  Colors.grey), // Set the border color to grey
-                        ),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 120,
-                                height: 140,
-                                child: Image.asset(
-                                  'assets/images/Cloth_1.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 13),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Brandname',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(137, 137, 137, 1),
-                                        fontSize: 9),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  const Text(
-                                    'Baby Sweater Full Sleeves',
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  Row(
-                                    children: const [
-                                      Text(
-                                        'Rs. 200.00',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '200.00',
-                                        style: TextStyle(
-                                          fontSize: 6,
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Color.fromRGBO(137, 137, 137, 1),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                  children: const [
+                    ProductCard(
+                      deprecatedPrice: 200,
+                      itemPrice: 200,
+                      itemName: 'Baby Sweater Full Sleeves',
+                      brandName: 'brandName',
+                      imagePath: 'assets/images/Cloth_1.png',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:
-                                  Colors.grey), // Set the border color to grey
-                        ),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 120,
-                                height: 140,
-                                child: Image.asset(
-                                  'assets/images/Cloth_1.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 13),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Brandname',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(137, 137, 137, 1),
-                                        fontSize: 9),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  const Text(
-                                    'Baby Sweater Full Sleeves',
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  Row(
-                                    children: const [
-                                      Text(
-                                        'Rs. 200.00',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '200.00',
-                                        style: TextStyle(
-                                          fontSize: 6,
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Color.fromRGBO(137, 137, 137, 1),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    ProductCard(
+                      deprecatedPrice: 200,
+                      itemPrice: 200,
+                      itemName: 'Baby Sweater Full Sleeves',
+                      brandName: 'brandName',
+                      imagePath: 'assets/images/Cloth_1.png',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:
-                                  Colors.grey), // Set the border color to grey
-                        ),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 120,
-                                height: 140,
-                                child: Image.asset(
-                                  'assets/images/Cloth_1.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 13),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Brandname',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(137, 137, 137, 1),
-                                        fontSize: 9),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  const Text(
-                                    'Baby Sweater Full Sleeves',
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  Row(
-                                    children: const [
-                                      Text(
-                                        'Rs. 200.00',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '200.00',
-                                        style: TextStyle(
-                                          fontSize: 6,
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Color.fromRGBO(137, 137, 137, 1),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    ProductCard(
+                      deprecatedPrice: 200,
+                      itemPrice: 200,
+                      itemName: 'Baby Sweater Full Sleeves',
+                      brandName: 'brandName',
+                      imagePath: 'assets/images/Cloth_1.png',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color:
-                                  Colors.grey), // Set the border color to grey
-                        ),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 120,
-                                height: 140,
-                                child: Image.asset(
-                                  'assets/images/Cloth_1.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 13),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Brandname',
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(137, 137, 137, 1),
-                                        fontSize: 9),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  const Text(
-                                    'Baby Sweater Full Sleeves',
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  Row(
-                                    children: const [
-                                      Text(
-                                        'Rs. 200.00',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '200.00',
-                                        style: TextStyle(
-                                          fontSize: 6,
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Color.fromRGBO(137, 137, 137, 1),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    ProductCard(
+                      deprecatedPrice: 200,
+                      itemPrice: 200,
+                      itemName: 'Baby Sweater Full Sleeves',
+                      brandName: 'brandName',
+                      imagePath: 'assets/images/Cloth_1.png',
                     ),
                   ],
                 ),
