@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
+import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
+import 'package:dotted_border/dotted_border.dart';
 
-class ProductCard_2 extends StatelessWidget {
+class ItemDetailScreen extends StatelessWidget {
   final String brandName;
   final DateTime deliveryDate;
   final String itemName;
@@ -11,7 +14,7 @@ class ProductCard_2 extends StatelessWidget {
   final double deprecatedPrice;
   final VoidCallback onPressed;
 
-  const ProductCard_2({
+  const ItemDetailScreen({
     required this.deprecatedPrice,
     required this.itemPrice,
     required this.itemName,
@@ -27,22 +30,17 @@ class ProductCard_2 extends StatelessWidget {
     String formattedDate = DateFormat.MMMEd().format(deliveryDate);
 
     return Scaffold(
-      body: GestureDetector(
-        onTap: onPressed,
+      backgroundColor: Colors.grey,
+      appBar: MotheringAppBar(),
+      drawer: MotheringAppBarDrawer(),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.27,
-              decoration: const BoxDecoration(
-                border: Border(
-                  right: BorderSide(
-                    color: Colors.blue,
-                    width: 2.0,
-                  ),
-                ),
-              ),
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.5,
+              decoration: const BoxDecoration(),
               child: Stack(
                 children: [
                   Positioned.fill(
@@ -79,7 +77,7 @@ class ProductCard_2 extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 10.0,
+                    top: 10.0,
                     right: 10.0,
                     child: Container(
                       width: 30.0,
@@ -96,7 +94,7 @@ class ProductCard_2 extends StatelessWidget {
                         alignment: Alignment.center,
                         color: Color.fromRGBO(124, 219, 253, 1),
                         onPressed: () {
-                          // Add your camera button functionality here
+                          // Add your favourite button functionality here
                         },
                       ),
                     ),
@@ -105,19 +103,10 @@ class ProductCard_2 extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.5,
+              width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.13,
               decoration: const BoxDecoration(
-                border: Border(
-                  right: BorderSide(
-                    color: Colors.blue,
-                    width: 2.0,
-                  ),
-                  bottom: BorderSide(
-                    color: Colors.blue,
-                    width: 2.0,
-                  ),
-                ),
+                color: Colors.white,
               ),
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -125,30 +114,19 @@ class ProductCard_2 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      brandName,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Color.fromRGBO(137, 137, 137, 1),
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Text(
                       itemName,
                       style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w500),
+                          fontSize: 18, fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
-                      height: 4,
+                      height: 12,
                     ),
                     Row(
                       children: [
                         Text(
-                          'Rs.' + '$itemPrice',
+                          'Rs. ' + '$itemPrice',
                           style: const TextStyle(
-                            fontSize: 14,
+                            fontSize: 16,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
@@ -170,29 +148,91 @@ class ProductCard_2 extends StatelessWidget {
                       height: 5,
                     ),
                     Row(
-                      children: [
-                        const Text(
-                          'Get it By',
+                      children: const [
+                        Text(
+                          'MRP inccl. all taxes; Add’l charges may apply on descounted price',
                           style: TextStyle(
                             fontSize: 12,
                             color: Color.fromRGBO(137, 137, 137, 1),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          formattedDate,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
                       ],
                     )
                   ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6.0),
+              child: Container(
+                width: double.infinity,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.label,
+                            color: Colors.red,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Text('Apply Coupan Code'),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 4.0),
+                                      child: DottedBorder(
+                                        borderType: BorderType.RRect,
+                                        radius: const Radius.circular(0),
+                                        padding: const EdgeInsets.all(0),
+                                        child: ClipRRect(
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(0)),
+                                          child: Container(
+                                            width: 50,
+                                            height: 15,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.cyan,
+                                            ),
+                                            child: const Center(
+                                              child: Text(
+                                                'FCDIWAII',
+                                                style: TextStyle(fontSize: 11),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Text('Flat 35% Off* T&C'),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.blue),
+                        ),
+                        onPressed: () {
+                          // Add your button's onPressed action here
+                        },
+                        child: const Text('APPLY'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
