@@ -19,6 +19,7 @@ class ShoppingScreen extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => ItemDetailScreen(
+                      pincode: 362112,
                       onPressed: () {},
                       deprecatedPrice: 200,
                       itemPrice: 200,

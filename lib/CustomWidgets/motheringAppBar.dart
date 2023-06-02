@@ -3,6 +3,12 @@ import 'package:badges/badges.dart' as badges;
 import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
 
 class MotheringAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Color appBarColor;
+
+  MotheringAppBar({
+    required this.appBarColor,
+  });
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -52,7 +58,7 @@ class MotheringAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
-      backgroundColor: Color.fromRGBO(124, 218, 252, 1),
+      backgroundColor: appBarColor,
       actions: <Widget>[
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: -3, end: -1),

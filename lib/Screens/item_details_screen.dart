@@ -4,19 +4,21 @@ import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ItemDetailScreen extends StatelessWidget {
+class ItemDetailScreen extends StatefulWidget {
   final String brandName;
   final DateTime deliveryDate;
   final String itemName;
   final String imagePath;
   final double itemPrice;
   final int discountPercentage;
+  final int pincode;
   final double deprecatedPrice;
   final VoidCallback onPressed;
 
   const ItemDetailScreen({
     required this.deprecatedPrice,
     required this.itemPrice,
+    required this.pincode,
     required this.itemName,
     required this.brandName,
     required this.imagePath,
@@ -26,8 +28,14 @@ class ItemDetailScreen extends StatelessWidget {
   });
 
   @override
+  State<ItemDetailScreen> createState() => _ItemDetailScreenState();
+}
+
+class _ItemDetailScreenState extends State<ItemDetailScreen> {
+  @override
   Widget build(BuildContext context) {
-    String formattedDate = DateFormat.MMMEd().format(deliveryDate);
+    String formattedDate = DateFormat.MMMEd().format(widget.deliveryDate);
+    List<bool> isSelected = [false, false, false, false, false];
 
     return Scaffold(
       backgroundColor: Colors.grey,
@@ -47,7 +55,7 @@ class ItemDetailScreen extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(00.0),
                       child: Image.asset(
-                        imagePath,
+                        widget.imagePath,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -67,7 +75,7 @@ class ItemDetailScreen extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.all(4.0),
                         child: Text(
-                          '$discountPercentage' + '% OFF',
+                          '${widget.discountPercentage}' + '% OFF',
                           style: const TextStyle(
                               fontSize: 12,
                               color: Colors.red,
@@ -114,7 +122,7 @@ class ItemDetailScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      itemName,
+                      widget.itemName,
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w400),
                     ),
@@ -124,7 +132,7 @@ class ItemDetailScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Rs. ' + '$itemPrice',
+                          'Rs. ' + '${widget.itemPrice}',
                           style: const TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -135,7 +143,7 @@ class ItemDetailScreen extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
-                          '  ' + '$deprecatedPrice',
+                          '  ' + '${widget.deprecatedPrice}',
                           style: const TextStyle(
                             fontSize: 10,
                             color: Color.fromRGBO(137, 137, 137, 1),
@@ -163,6 +171,7 @@ class ItemDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
+            //Coupon Code Container
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 6.0),
               child: Container(
@@ -236,6 +245,158 @@ class ItemDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
+            // Delivery Details Container
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Container(
+                width: double.infinity,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.local_shipping_outlined,
+                            size: 24,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text('Delivery Pincode'),
+                          const SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            '${widget.pincode}',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.check_box_outlined,
+                            size: 24,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            'Get it by ',
+                            style: TextStyle(color: Colors.green),
+                          ),
+                          Text(
+                            '${formattedDate}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            // Initiatives section
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Container(
+                width: double.infinity,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            width: 38,
+                            height: 38,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.indigo, width: 2),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Icon(
+                              Icons.card_giftcard,
+                              size: 24,
+                              color: Colors.indigo,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            'Gift Wrap',
+                            style: TextStyle(
+                              color: Colors.indigo,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 38,
+                            height: 38,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.indigo, width: 2),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Icon(
+                              Icons.monetization_on,
+                              size: 24,
+                              color: Colors.indigo,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            'COD Available',
+                            style: TextStyle(
+                              color: Colors.indigo,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 38,
+                            height: 38,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.indigo, width: 2),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Icon(
+                              Icons.arrow_downward,
+                              size: 24,
+                              color: Colors.indigo,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            '10 Days Return',
+                            style: TextStyle(
+                              color: Colors.indigo,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            )
           ],
         ),
       ),
