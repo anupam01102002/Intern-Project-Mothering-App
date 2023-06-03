@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
+
 import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/productcard_1.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
-import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
+
 import 'package:mothering_app/child_details.dart';
-import 'package:mothering_app/profile.dart';
+
 
 class MotheringHomeScreen extends StatelessWidget {
   @override

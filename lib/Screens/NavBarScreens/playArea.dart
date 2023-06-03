@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mothering_app/CustomWidgets/custombutton.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
-import 'package:mothering_app/CustomWidgets/subtitle.dart';
-import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
 
 class MotheringPlayAreaScreen extends StatelessWidget {
   @override
@@ -11,9 +8,7 @@ class MotheringPlayAreaScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(243, 252, 255, 1),
-      appBar: MotheringAppBar(
-        
-      ),
+      appBar: MotheringAppBar(),
       drawer: MotheringAppBarDrawer(),
       body: Center(
         child: Column(
@@ -32,8 +27,8 @@ class MotheringPlayAreaScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Icon(
                             Icons.location_pin,
                             color: Color.fromRGBO(150, 150, 150, 1),
@@ -105,7 +100,7 @@ class AdvertisementContainer extends StatelessWidget {
   final String imageUrl;
   final double borderRadius;
 
-  AdvertisementContainer({required this.imageUrl, this.borderRadius = 10.0});
+  AdvertisementContainer({required this.imageUrl, this.borderRadius = 20.0});
 
   @override
   Widget build(BuildContext context) {

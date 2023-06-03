@@ -6,11 +6,11 @@ class MotheringAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Row(
+      title: const Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 13,
             backgroundColor: Colors.white,
             // Add profile icon image here
@@ -22,12 +22,12 @@ class MotheringAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: Color.fromRGBO(124, 218, 252, 1),
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   'User Name',
                   style: TextStyle(
@@ -46,7 +46,7 @@ class MotheringAppBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
           ),
-          const Icon(
+          Icon(
             Icons.arrow_drop_down,
             color: Colors.white,
           ),
