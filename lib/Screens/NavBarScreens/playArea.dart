@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mothering_app/CustomWidgets/motheringAppBar.dart';
+import 'package:mothering_app/CustomWidgets/motheringAppBar_1.dart';
+import 'package:mothering_app/CustomWidgets/motheringAppBar_2.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 
 class MotheringPlayAreaScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class MotheringPlayAreaScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(243, 252, 255, 1),
-      appBar: MotheringAppBar(),
+      appBar: motheringAppBar_2(),
       drawer: MotheringAppBarDrawer(),
       body: Center(
         child: Column(

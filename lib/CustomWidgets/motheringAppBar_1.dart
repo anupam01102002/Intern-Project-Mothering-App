@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
 
-class MotheringAppBar extends StatelessWidget implements PreferredSizeWidget {
+class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
