@@ -12,7 +12,7 @@ class MotheringPlayAreaScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(243, 252, 255, 1),
       appBar: MotheringAppBar(
-        appBarColor: Color.fromRGBO(124, 218, 252, 1),
+        
       ),
       drawer: MotheringAppBarDrawer(),
       body: Center(
