@@ -86,8 +86,22 @@ class MotheringPlayAreaScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            PlayAreaDetailsScreen()),
+                                      builder: (context) =>
+                                          const PlayAreaDetailsScreen(
+                                        playAreaDetails:
+                                            'There are many different styles of playhouse plans below, all the way from the traditional playhouse to playhouses that are more like forts.',
+                                        playAreaName: 'Nunit Play Area',
+                                        phoneNumber: 7717777177,
+                                        emailId: 'Google123@Gmail.com',
+                                        criteraItems: [
+                                          'Language Enhancement',
+                                          'Creativity',
+                                          'Fine Motor Skills',
+                                          // 'General Knowledge',
+                                          // 'overall Development',
+                                        ],
+                                      ),
+                                    ),
                                   );
                                 },
                                 fillColor: Color.fromRGBO(255, 255, 255, 1),
