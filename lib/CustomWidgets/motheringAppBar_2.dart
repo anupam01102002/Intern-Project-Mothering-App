@@ -2,59 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
 
-class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
+class motheringAppBar_2 extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      title: Row(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircleAvatar(
-            radius: 13,
-            backgroundColor: Colors.white,
-            // Add profile icon image here
-            // backgroundImage: AssetImage('assets/profile_image.png'),
-            // Use the above line if you have a custom profile image
-            child: Icon(
-              Icons.person,
-              size: 20,
-              color: Color.fromRGBO(124, 218, 252, 1),
-            ),
-          ),
-          SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'User Name',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  'All',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Icon(
-            Icons.arrow_drop_down,
-            color: Colors.white,
+          Image.asset(
+            'assets/images/Mothering_Text.png',
+            width: 80.0,
+            height: 80.0,
           ),
         ],
       ),
-      
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromRGBO(243, 149, 96, 1),
+              Color.fromRGBO(251, 170, 124, 1),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+      ),
       actions: <Widget>[
         badges.Badge(
+          showBadge: false,
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(206, 217, 255, 1),
+          ),
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
           badgeContent: Text('3'),
           child: IconButton(
@@ -68,6 +48,9 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         badges.Badge(
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(206, 217, 255, 1),
+          ),
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
           badgeContent: Text('3'),
           child: IconButton(
@@ -79,6 +62,9 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         badges.Badge(
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(206, 217, 255, 1),
+          ),
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
           badgeContent: Text('3'),
           child: IconButton(
@@ -90,6 +76,9 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         badges.Badge(
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(206, 217, 255, 1),
+          ),
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
           badgeContent: Text('3'),
           child: IconButton(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
+import 'package:mothering_app/CustomWidgets/MotheringAppBar_1.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:dotted_border/dotted_border.dart';
 
@@ -39,7 +39,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
 
     return Scaffold(
       backgroundColor: Colors.grey,
-      appBar: MotheringAppBar(),
+      appBar: MotheringAppBar_1(),
       drawer: MotheringAppBarDrawer(),
       body: SingleChildScrollView(
         child: Column(

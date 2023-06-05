@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
+import 'package:mothering_app/CustomWidgets/MotheringAppBar_1.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/productcard_1.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
@@ -13,7 +13,7 @@ class MotheringHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: MotheringAppBar(),
+      appBar: MotheringAppBar_1(),
       drawer: MotheringAppBarDrawer(),
       body: SingleChildScrollView(
         child: Center(

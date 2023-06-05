@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
+import 'package:mothering_app/CustomWidgets/MotheringAppBar_1.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/productcard_1.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
@@ -13,7 +13,7 @@ class MotheringShopScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(243, 252, 255, 1),
-      appBar: MotheringAppBar(),
+      appBar: MotheringAppBar_1(),
       drawer: MotheringAppBarDrawer(),
       body: Center(
         child: Column(
@@ -194,6 +194,10 @@ class MotheringShopScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomButton(
+                      width: 170,
+                      fillColor: Colors.white,
+                      borderColor: Color.fromRGBO(0, 124, 168, 1),
+                      textColor: Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'BOYS FASHION',
                       onPressed: () {
                         Navigator.push(
@@ -203,6 +207,10 @@ class MotheringShopScreen extends StatelessWidget {
                         );
                       }),
                   CustomButton(
+                      width: 170,
+                      fillColor: Colors.white,
+                      borderColor: Color.fromRGBO(0, 124, 168, 1),
+                      textColor: Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'GIRLS FASHION',
                       onPressed: () {
                         Navigator.push(
@@ -220,6 +228,10 @@ class MotheringShopScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomButton(
+                      width: 170,
+                      fillColor: Colors.white,
+                      borderColor: Color.fromRGBO(0, 124, 168, 1),
+                      textColor: Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'BEST SELLER',
                       onPressed: () {
                         Navigator.push(
@@ -229,6 +241,10 @@ class MotheringShopScreen extends StatelessWidget {
                         );
                       }),
                   CustomButton(
+                      width: 170,
+                      fillColor: Colors.white,
+                      borderColor: Color.fromRGBO(0, 124, 168, 1),
+                      textColor: Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'SALE 50%OFF',
                       onPressed: () {
                         Navigator.push(
@@ -246,6 +262,10 @@ class MotheringShopScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomButton(
+                      width: 170,
+                      fillColor: Colors.white,
+                      borderColor: Color.fromRGBO(0, 124, 168, 1),
+                      textColor: Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'ETHICAL WEAR',
                       onPressed: () {
                         Navigator.push(
@@ -255,6 +275,10 @@ class MotheringShopScreen extends StatelessWidget {
                         );
                       }),
                   CustomButton(
+                      width: 170,
+                      fillColor: Colors.white,
+                      borderColor: Color.fromRGBO(0, 124, 168, 1),
+                      textColor: Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'MOTHER\'S CHOICE',
                       onPressed: () {
                         Navigator.push(

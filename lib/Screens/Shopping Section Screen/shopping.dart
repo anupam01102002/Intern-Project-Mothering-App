@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
-import 'package:mothering_app/CustomWidgets/MotheringAppBar.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
+import 'package:mothering_app/CustomWidgets/motheringAppBar_1.dart';
 import 'package:mothering_app/Screens/item_details_screen.dart';
 import '/CustomWidgets/productcard_2.dart';
 import '/profile.dart';
@@ -11,7 +11,7 @@ class ShoppingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: MotheringAppBar(),
+      appBar: MotheringAppBar_1(),
       drawer: MotheringAppBarDrawer(),
       body: ProductCard_2(
           onPressed: () {
