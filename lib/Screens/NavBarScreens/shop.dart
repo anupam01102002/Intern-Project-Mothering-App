@@ -12,7 +12,7 @@ class MotheringShopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromRGBO(243, 252, 255, 1),
+      backgroundColor: const Color.fromRGBO(243, 252, 255, 1),
       appBar: MotheringAppBar_1(),
       drawer: MotheringAppBarDrawer(),
       body: Center(
@@ -29,8 +29,8 @@ class MotheringShopScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: const [
+                        const Row(
+                          children: [
                             Icon(
                               Icons.location_pin,
                               color: Color.fromRGBO(150, 150, 150, 1),
@@ -45,7 +45,7 @@ class MotheringShopScreen extends StatelessWidget {
                           ],
                         ),
                         IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_drop_down,
                             color: Color.fromRGBO(150, 150, 150, 1),
                           ),
@@ -58,7 +58,7 @@ class MotheringShopScreen extends StatelessWidget {
                   )),
             ),
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               child: Container(
                 width: double.infinity,
                 height: 100,
@@ -74,7 +74,7 @@ class MotheringShopScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Row(
                         children: <Widget>[
                           Column(
@@ -89,9 +89,9 @@ class MotheringShopScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(width: 8.0),
-                          Column(
+                          const Column(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: const <Widget>[
+                            children: <Widget>[
                               Text(
                                 'Ideal Height',
                                 style: TextStyle(
@@ -116,9 +116,9 @@ class MotheringShopScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8.0),
-                          Column(
+                          const Column(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: const <Widget>[
+                            children: <Widget>[
                               Text(
                                 'Ideal Height',
                                 style: TextStyle(
@@ -138,11 +138,11 @@ class MotheringShopScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(5),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             'Aayan is 3 Years, 2 Month Old',
                             style: TextStyle(
@@ -184,6 +184,7 @@ class MotheringShopScreen extends StatelessWidget {
             ),
             // Shop by Category Text
             const Subtitle(
+              textColor: Color.fromRGBO(0, 124, 168, 1),
                 containerHeight: 35,
                 containerWidth: 8,
                 enterText: 'Shop By Category'),
@@ -196,8 +197,8 @@ class MotheringShopScreen extends StatelessWidget {
                   CustomButton(
                       width: 170,
                       fillColor: Colors.white,
-                      borderColor: Color.fromRGBO(0, 124, 168, 1),
-                      textColor: Color.fromRGBO(0, 124, 168, 1),
+                      borderColor: const Color.fromRGBO(0, 124, 168, 1),
+                      textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'BOYS FASHION',
                       onPressed: () {
                         Navigator.push(
@@ -209,8 +210,8 @@ class MotheringShopScreen extends StatelessWidget {
                   CustomButton(
                       width: 170,
                       fillColor: Colors.white,
-                      borderColor: Color.fromRGBO(0, 124, 168, 1),
-                      textColor: Color.fromRGBO(0, 124, 168, 1),
+                      borderColor: const Color.fromRGBO(0, 124, 168, 1),
+                      textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'GIRLS FASHION',
                       onPressed: () {
                         Navigator.push(
@@ -230,8 +231,8 @@ class MotheringShopScreen extends StatelessWidget {
                   CustomButton(
                       width: 170,
                       fillColor: Colors.white,
-                      borderColor: Color.fromRGBO(0, 124, 168, 1),
-                      textColor: Color.fromRGBO(0, 124, 168, 1),
+                      borderColor: const Color.fromRGBO(0, 124, 168, 1),
+                      textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'BEST SELLER',
                       onPressed: () {
                         Navigator.push(
@@ -243,8 +244,8 @@ class MotheringShopScreen extends StatelessWidget {
                   CustomButton(
                       width: 170,
                       fillColor: Colors.white,
-                      borderColor: Color.fromRGBO(0, 124, 168, 1),
-                      textColor: Color.fromRGBO(0, 124, 168, 1),
+                      borderColor: const Color.fromRGBO(0, 124, 168, 1),
+                      textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'SALE 50%OFF',
                       onPressed: () {
                         Navigator.push(
@@ -264,8 +265,8 @@ class MotheringShopScreen extends StatelessWidget {
                   CustomButton(
                       width: 170,
                       fillColor: Colors.white,
-                      borderColor: Color.fromRGBO(0, 124, 168, 1),
-                      textColor: Color.fromRGBO(0, 124, 168, 1),
+                      borderColor: const Color.fromRGBO(0, 124, 168, 1),
+                      textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'ETHICAL WEAR',
                       onPressed: () {
                         Navigator.push(
@@ -277,8 +278,8 @@ class MotheringShopScreen extends StatelessWidget {
                   CustomButton(
                       width: 170,
                       fillColor: Colors.white,
-                      borderColor: Color.fromRGBO(0, 124, 168, 1),
-                      textColor: Color.fromRGBO(0, 124, 168, 1),
+                      borderColor: const Color.fromRGBO(0, 124, 168, 1),
+                      textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'MOTHER\'S CHOICE',
                       onPressed: () {
                         Navigator.push(
@@ -292,6 +293,7 @@ class MotheringShopScreen extends StatelessWidget {
             ),
             //New Arrival Text
             const Subtitle(
+              textColor: Color.fromRGBO(0, 124, 168, 1),
                 containerHeight: 35,
                 containerWidth: 8,
                 enterText: 'New Arrival'),

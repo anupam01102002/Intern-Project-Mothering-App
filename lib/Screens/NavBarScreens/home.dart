@@ -7,7 +7,6 @@ import 'package:mothering_app/CustomWidgets/subtitle.dart';
 
 import 'package:mothering_app/child_details.dart';
 
-
 class MotheringHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class MotheringHomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Container(
                   width: double.infinity,
                   height: 100,
@@ -56,7 +55,7 @@ class MotheringHomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         child: Row(
                           children: <Widget>[
                             Column(
@@ -71,9 +70,9 @@ class MotheringHomeScreen extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(width: 8.0),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   'Ideal Height',
                                   style: TextStyle(
@@ -98,9 +97,9 @@ class MotheringHomeScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 8.0),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   'Ideal Height',
                                   style: TextStyle(
@@ -120,11 +119,11 @@ class MotheringHomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Text(
                               'Aayan is 3 Years, 2 Month Old',
                               style: TextStyle(
@@ -174,6 +173,7 @@ class MotheringHomeScreen extends StatelessWidget {
               ),
               // Bestseller title
               const Subtitle(
+                  textColor: Color.fromRGBO(0, 124, 168, 1),
                   containerHeight: 32,
                   containerWidth: 6,
                   enterText: 'Bestseller'),

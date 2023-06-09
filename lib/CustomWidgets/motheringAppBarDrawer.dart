@@ -33,11 +33,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             'User Name',
                             style: TextStyle(
@@ -57,7 +57,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
                       ), // Replace with the desired icon
@@ -199,11 +199,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.home,
                   size: 20,
                 ),
-                title: Text('Home'),
+                title: const Text('Home'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -212,11 +212,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.notifications,
                   size: 20,
                 ),
-                title: Text('Notification'),
+                title: const Text('Notification'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -225,11 +225,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.label,
                   size: 20,
                 ),
-                title: Text('Offer Zone'),
+                title: const Text('Offer Zone'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -238,11 +238,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.favorite,
                   size: 20,
                 ),
-                title: Text(
+                title: const Text(
                   'Mothering',
                   style: TextStyle(
                     color: Color.fromRGBO(124, 218, 252, 1),
@@ -260,7 +260,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.blender_outlined,
                   size: 20,
                 ),
-                title: Text(
+                title: const Text(
                   'Baby Hug',
                   style: TextStyle(
                     color: Color.fromRGBO(124, 218, 252, 1),
@@ -278,7 +278,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.blender_outlined,
                   size: 20,
                 ),
-                title: Text(
+                title: const Text(
                   'Baby Hug',
                   style: TextStyle(
                     color: Color.fromRGBO(124, 218, 252, 1),
@@ -292,7 +292,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: Text(
+                leading: const Text(
                   'My Activity',
                 ),
                 onTap: () {
@@ -303,7 +303,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: Text(
+                leading: const Text(
                   'Shop By Category',
                 ),
                 onTap: () {
@@ -318,7 +318,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.blender_outlined,
                   size: 20,
                 ),
-                title: Text(
+                title: const Text(
                   'Baby Hug',
                   style: TextStyle(
                     color: Color.fromRGBO(124, 218, 252, 1),
@@ -336,7 +336,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.blender_outlined,
                   size: 20,
                 ),
-                title: Text(
+                title: const Text(
                   'Baby Hug',
                   style: TextStyle(
                     color: Color.fromRGBO(124, 218, 252, 1),
@@ -354,7 +354,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.star,
                   size: 20,
                 ),
-                title: Text('Rate this App'),
+                title: const Text('Rate this App'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -367,7 +367,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.share,
                   size: 20,
                 ),
-                title: Text('Share this app'),
+                title: const Text('Share this app'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -380,7 +380,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.headphones,
                   size: 20,
                 ),
-                title: Text('Support'),
+                title: const Text('Support'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -393,7 +393,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.rounded_corner,
                   size: 20,
                 ),
-                title: Text('Policies'),
+                title: const Text('Policies'),
                 onTap: () {
                   // Handle Home item tap
                 },
@@ -406,7 +406,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                   Icons.handshake,
                   size: 20,
                 ),
-                title: Text('Sell with us'),
+                title: const Text('Sell with us'),
                 onTap: () {
                   // Handle Home item tap
                 },

@@ -3,7 +3,7 @@ import 'package:mothering_app/CustomWidgets/custombutton.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar_2.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/pincodecontainer.dart';
-import 'package:mothering_app/Screens/playareadetailsscreen.dart';
+import 'package:mothering_app/Screens/other%20Screens/playareadetailsscreen.dart';
 
 class MotheringPlayAreaScreen extends StatelessWidget {
   @override
@@ -97,8 +97,8 @@ class MotheringPlayAreaScreen extends StatelessWidget {
                                           'Language Enhancement',
                                           'Creativity',
                                           'Fine Motor Skills',
-                                          // 'General Knowledge',
-                                          // 'overall Development',
+                                          'General Knowledge',
+                                          'overall Development',
                                         ],
                                       ),
                                     ),

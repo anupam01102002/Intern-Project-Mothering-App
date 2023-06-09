@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:mothering_app/CustomWidgets/MotheringAppBar_1.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:mothering_app/CustomWidgets/productcard_2.dart';
+import 'package:mothering_app/CustomWidgets/subtitle.dart';
 
 class ItemDetailScreen extends StatefulWidget {
   final String brandName;
@@ -14,18 +16,19 @@ class ItemDetailScreen extends StatefulWidget {
   final int pincode;
   final double deprecatedPrice;
   final VoidCallback onPressed;
+  final List<String> productSpecifications;
 
-  const ItemDetailScreen({
-    required this.deprecatedPrice,
-    required this.itemPrice,
-    required this.pincode,
-    required this.itemName,
-    required this.brandName,
-    required this.imagePath,
-    required this.deliveryDate,
-    required this.discountPercentage,
-    required this.onPressed,
-  });
+  const ItemDetailScreen(
+      {required this.deprecatedPrice,
+      required this.itemPrice,
+      required this.pincode,
+      required this.itemName,
+      required this.brandName,
+      required this.imagePath,
+      required this.deliveryDate,
+      required this.productSpecifications,
+      required this.discountPercentage,
+      required this.onPressed});
 
   @override
   State<ItemDetailScreen> createState() => _ItemDetailScreenState();
@@ -38,7 +41,8 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     List<bool> isSelected = [false, false, false, false, false];
 
     return Scaffold(
-      backgroundColor: Colors.grey,
+      resizeToAvoidBottomInset: false,
+      backgroundColor: const Color.fromRGBO(230, 230, 230, 1),
       appBar: MotheringAppBar_1(),
       drawer: MotheringAppBarDrawer(),
       body: SingleChildScrollView(
@@ -53,7 +57,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                 children: [
                   Positioned.fill(
                     child: Padding(
-                      padding: EdgeInsets.all(00.0),
+                      padding: const EdgeInsets.all(00.0),
                       child: Image.asset(
                         widget.imagePath,
                         fit: BoxFit.cover,
@@ -73,7 +77,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0),
                         child: Text(
                           '${widget.discountPercentage}' + '% OFF',
                           style: const TextStyle(
@@ -100,7 +104,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           size: 18,
                         ),
                         alignment: Alignment.center,
-                        color: Color.fromRGBO(124, 219, 253, 1),
+                        color: const Color.fromRGBO(124, 219, 253, 1),
                         onPressed: () {
                           // Add your favourite button functionality here
                         },
@@ -117,7 +121,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                 color: Colors.white,
               ),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -155,8 +159,8 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                     const SizedBox(
                       height: 5,
                     ),
-                    Row(
-                      children: const [
+                    const Row(
+                      children: [
                         Text(
                           'MRP inccl. all taxes; Add’l charges may apply on descounted price',
                           style: TextStyle(
@@ -270,7 +274,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           ),
                           Text(
                             '${widget.pincode}',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
@@ -289,7 +293,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           ),
                           Text(
                             '${formattedDate}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.green),
                           ),
@@ -317,13 +321,14 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                             width: 38,
                             height: 38,
                             decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.indigo, width: 2),
+                                border: Border.all(
+                                    color: const Color.fromRGBO(0, 124, 168, 1),
+                                    width: 2),
                                 borderRadius: BorderRadius.circular(30)),
                             child: const Icon(
                               Icons.card_giftcard,
                               size: 24,
-                              color: Colors.indigo,
+                              color: Color.fromRGBO(0, 124, 168, 1),
                             ),
                           ),
                           const SizedBox(
@@ -332,7 +337,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           const Text(
                             'Gift Wrap',
                             style: TextStyle(
-                              color: Colors.indigo,
+                              color: Color.fromRGBO(0, 124, 168, 1),
                             ),
                           ),
                         ],
@@ -343,13 +348,14 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                             width: 38,
                             height: 38,
                             decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.indigo, width: 2),
+                                border: Border.all(
+                                    color: const Color.fromRGBO(0, 124, 168, 1),
+                                    width: 2),
                                 borderRadius: BorderRadius.circular(30)),
                             child: const Icon(
                               Icons.monetization_on,
                               size: 24,
-                              color: Colors.indigo,
+                              color: Color.fromRGBO(0, 124, 168, 1),
                             ),
                           ),
                           const SizedBox(
@@ -358,7 +364,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           const Text(
                             'COD Available',
                             style: TextStyle(
-                              color: Colors.indigo,
+                              color: Color.fromRGBO(0, 124, 168, 1),
                             ),
                           ),
                         ],
@@ -369,13 +375,14 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                             width: 38,
                             height: 38,
                             decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.indigo, width: 2),
+                                border: Border.all(
+                                    color: const Color.fromRGBO(0, 124, 168, 1),
+                                    width: 2),
                                 borderRadius: BorderRadius.circular(30)),
                             child: const Icon(
                               Icons.arrow_downward,
                               size: 24,
-                              color: Colors.indigo,
+                              color: Color.fromRGBO(0, 124, 168, 1),
                             ),
                           ),
                           const SizedBox(
@@ -384,13 +391,177 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                           const Text(
                             '10 Days Return',
                             style: TextStyle(
-                              color: Colors.indigo,
+                              color: Color.fromRGBO(0, 124, 168, 1),
                             ),
                           ),
                         ],
                       ),
                     ],
                   ),
+                ),
+              ),
+            ),
+            // Product Information Section
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Container(
+                width: double.infinity,
+                color: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        top: 8.0,
+                        left: 16,
+                        bottom: 8,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'PRODUCT INFORMATION',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'Specifications',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Container(
+                        height:
+                            22 * widget.productSpecifications.length.toDouble(),
+                        child: ListView.builder(
+                          itemCount: widget.productSpecifications.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              height: 20,
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.circle,
+                                    size: 8,
+                                    color: Color.fromRGBO(0, 124, 168, 1),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    widget.productSpecifications[index],
+                                    textAlign: TextAlign.start,
+                                    style: const TextStyle(
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    const Subtitle(
+                      textColor: Color.fromRGBO(124, 218, 252, 1),
+                      containerHeight: 32,
+                      containerWidth: 16,
+                      enterText: 'YOU MAY ALSO LIKE',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6.0, bottom: 10),
+                      child: Container(
+                        width: double.infinity,
+                        height: 2,
+                        color: const Color.fromRGBO(124, 218, 252, 1),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ProductCard_2(
+                          borderColor: Colors.white,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItemDetailScreen(
+                                    productSpecifications: const [
+                                      'Brand - Babyhug',
+                                      'Type - Sweater Set',
+                                      'Fabric - knit',
+                                      'Sleeves - Full',
+                                    ],
+                                    pincode: 362112,
+                                    onPressed: () {},
+                                    deprecatedPrice: 200,
+                                    itemPrice: 200,
+                                    itemName: 'Baby Sweater',
+                                    brandName: 'brandName',
+                                    imagePath: 'assets/images/Cloth_1.png',
+                                    deliveryDate: DateTime.now(),
+                                    discountPercentage: 37),
+                              ),
+                            );
+                          },
+                          deprecatedPrice: 200,
+                          itemPrice: 200,
+                          itemName: 'Baby Sweater',
+                          brandName: 'brandName',
+                          imagePath: 'assets/images/Cloth_1.png',
+                          deliveryDate: DateTime.now(),
+                          discountPercentage: 37,
+                        ),
+                        ProductCard_2(
+                          borderColor: Colors.white,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItemDetailScreen(
+                                    productSpecifications: const [
+                                      'Brand - Babyhug',
+                                      'Type - Sweater Set',
+                                      'Fabric - knit',
+                                      'Sleeves - Full',
+                                    ],
+                                    pincode: 362112,
+                                    onPressed: () {},
+                                    deprecatedPrice: 200,
+                                    itemPrice: 200,
+                                    itemName: 'Baby Sweater',
+                                    brandName: 'brandName',
+                                    imagePath: 'assets/images/Cloth_1.png',
+                                    deliveryDate: DateTime.now(),
+                                    discountPercentage: 37),
+                              ),
+                            );
+                          },
+                          deprecatedPrice: 200,
+                          itemPrice: 200,
+                          itemName: 'Baby Sweater',
+                          brandName: 'brandName',
+                          imagePath: 'assets/images/Cloth_1.png',
+                          deliveryDate: DateTime.now(),
+                          discountPercentage: 37,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),

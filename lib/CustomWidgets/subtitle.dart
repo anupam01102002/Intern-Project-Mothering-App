@@ -4,11 +4,13 @@ class Subtitle extends StatelessWidget {
   final double containerHeight;
   final double containerWidth;
   final String enterText;
+  final Color textColor;
 
   const Subtitle({
     required this.containerHeight,
     required this.containerWidth,
     required this.enterText,
+    required this.textColor,
   });
 
   @override
@@ -22,8 +24,8 @@ class Subtitle extends StatelessWidget {
               Container(
                 height: containerHeight,
                 width: containerWidth,
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(0, 124, 168, 1),
+                decoration: BoxDecoration(
+                  color: textColor,
                 ),
               ),
             ],
@@ -34,10 +36,10 @@ class Subtitle extends StatelessWidget {
             children: <Widget>[
               Text(
                 enterText,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
-                  color: Color.fromRGBO(0, 124, 168, 1),
+                  color: textColor,
                 ),
               ),
             ],
