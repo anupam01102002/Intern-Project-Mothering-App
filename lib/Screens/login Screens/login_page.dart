@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import './otp.dart';
+
 // import './register.dart';
 class LoginPage extends StatelessWidget {
   static const routeName = '/Login-Page';
 
   @override
   Widget build(BuildContext context) {
+    TextField phoneNumber;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
@@ -37,7 +39,7 @@ class LoginPage extends StatelessWidget {
                       MediaQuery.of(context).padding.top) *
                   0.04),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50.0),
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -46,7 +48,7 @@ class LoginPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              child: const TextField(
+              child: phoneNumber = const TextField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Enter Mobile Number',

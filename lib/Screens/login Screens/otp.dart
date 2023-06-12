@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'register.dart';
+import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const defaultPinTheme = PinTheme(
+      width: 48,
+      height: 56,
+      textStyle: TextStyle(
+          fontSize: 20,
+          color: Color.fromRGBO(0, 0, 0, 1),
+          fontWeight: FontWeight.w600),
+      decoration: BoxDecoration(
+        border: BorderDirectional(
+            bottom: BorderSide(width: 2, color: Colors.white)),
+      ),
+    );
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
@@ -35,17 +49,11 @@ class OtpScreen extends StatelessWidget {
                 height: (MediaQuery.of(context).size.height -
                         MediaQuery.of(context).padding.top) *
                     0.04),
-            Container(
-              width: 200,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  OTPDigitTextField(),
-                  OTPDigitTextField(),
-                  OTPDigitTextField(),
-                  OTPDigitTextField(),
-                ],
-              ),
+            Pinput(
+              length: 4,
+              defaultPinTheme: defaultPinTheme,
+              showCursor: true,
+              onCompleted: (pin) => print(pin),
             ),
             SizedBox(
                 height: (MediaQuery.of(context).size.height -
@@ -81,7 +89,7 @@ class OtpScreen extends StatelessWidget {
               style: TextButton.styleFrom(
                 primary: Colors.white,
                 backgroundColor: Colors.transparent,
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
               ),
               child: const Text(
                 'RESEND OTP',
@@ -107,35 +115,5 @@ class OtpScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class OTPDigitTextField extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      child: TextField(
-        maxLength: 1,
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 10),
-          counterText: "",
-          hintText: "-",
-          hintStyle: TextStyle(fontSize: 24),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
-            borderSide: BorderSide(
-              width: 2.0,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-    ;
   }
 }

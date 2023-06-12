@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mothering_app/CustomWidgets/AppBars/motheringAppBar_2.dart';
 import 'package:mothering_app/CustomWidgets/custombutton.dart';
-import 'package:mothering_app/CustomWidgets/motheringAppBar_2.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/pincodecontainer.dart';
 import 'package:mothering_app/Screens/other%20Screens/playareadetailsscreen.dart';
@@ -88,6 +88,7 @@ class MotheringPlayAreaScreen extends StatelessWidget {
                                     MaterialPageRoute(
                                       builder: (context) =>
                                           const PlayAreaDetailsScreen(
+                                        playAreaLocation: 'New Delhi',
                                         playAreaDetails:
                                             'There are many different styles of playhouse plans below, all the way from the traditional playhouse to playhouses that are more like forts.',
                                         playAreaName: 'Nunit Play Area',

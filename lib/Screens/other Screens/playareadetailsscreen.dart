@@ -4,6 +4,7 @@ import 'package:mothering_app/Screens/NavBarScreens/playArea.dart';
 
 class PlayAreaDetailsScreen extends StatelessWidget {
   final String playAreaName;
+  final String playAreaLocation;
   final String playAreaDetails;
   final String emailId;
   final int phoneNumber;
@@ -12,6 +13,7 @@ class PlayAreaDetailsScreen extends StatelessWidget {
   const PlayAreaDetailsScreen(
       {required this.playAreaDetails,
       required this.playAreaName,
+      required this.playAreaLocation,
       required this.phoneNumber,
       required this.emailId,
       required this.criteraItems});
@@ -69,23 +71,23 @@ class PlayAreaDetailsScreen extends StatelessWidget {
                           topRight: Radius.circular(20),
                         ),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.location_pin,
                               color: Color.fromRGBO(204, 88, 24, 1),
                               size: 20,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Text(
-                              'New Delhi',
-                              style: TextStyle(
+                              playAreaLocation,
+                              style: const TextStyle(
                                 fontSize: 12,
                                 color: Color.fromRGBO(204, 88, 24, 1),
                                 fontWeight: FontWeight.w500,
@@ -282,7 +284,10 @@ class PlayAreaDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          const ModalBottomSheetDemo(),
+          ModalBottomSheetDemo(
+            playAreaName: playAreaName,
+            playAreaLocation: playAreaLocation,
+          ),
         ],
       ),
     );
@@ -290,7 +295,13 @@ class PlayAreaDetailsScreen extends StatelessWidget {
 }
 
 class ModalBottomSheetDemo extends StatelessWidget {
-  const ModalBottomSheetDemo({Key? key}) : super(key: key);
+  final String playAreaName;
+  final String playAreaLocation;
+
+  const ModalBottomSheetDemo({
+    required this.playAreaName,
+    required this.playAreaLocation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -313,30 +324,32 @@ class ModalBottomSheetDemo extends StatelessWidget {
           onPressed: () {
             showModalBottomSheet(
               context: context,
-
               backgroundColor: Colors.white,
               //elevates modal bottom screen
               elevation: 10,
               // gives rounded corner to modal bottom screen
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(40.0),
               ),
               builder: (BuildContext context) {
                 // UDE : SizedBox instead of Container for whitespaces
                 return Container(
-                  height: 300,
+                  height: 350,
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'BOOK YOUR SLOT',
-                            style: TextStyle(
-                                color: Color.fromRGBO(243, 149, 97, 1),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
+                          Padding(
+                            padding: EdgeInsets.only(top: 24.0, bottom: 16),
+                            child: Text(
+                              'BOOK YOUR SLOT',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(243, 149, 97, 1),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           )
                         ],
                       ),
@@ -344,150 +357,187 @@ class ModalBottomSheetDemo extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            height: 30,
+                            height: 35,
                             width: MediaQuery.of(context).size.width * 0.8,
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            padding: const EdgeInsets.only(
+                              right: 16.0,
+                              left: 16,
+                              top: 8,
+                            ),
                             decoration: BoxDecoration(
+                              color: const Color.fromRGBO(240, 240, 240, 1),
                               border: Border.all(
                                 color: Colors.orange,
                                 width: 2.0,
                               ),
                               borderRadius: BorderRadius.circular(50.0),
                             ),
-                            child: const TextField(
-                              controller: null,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16.0,
-                              ),
-                              decoration: InputDecoration(
-                                hintText: 'Enter text',
-                                border: InputBorder.none,
+                            child: const Center(
+                              child: TextField(
+                                controller: null,
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  fontSize: 12.0,
+                                ),
+                                decoration: InputDecoration(
+                                  hintText: 'Date',
+                                  hintStyle: TextStyle(color: Colors.orange),
+                                  border: InputBorder.none,
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 50,
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            child: Column(
-                              children: [
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Start Time',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(243, 149, 97, 1),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 30,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 16.0),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.orange,
-                                          width: 2.0,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 60,
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Column(
+                                children: [
+                                  const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(bottom: 4.0),
+                                        child: Text(
+                                          'Start Time',
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  243, 149, 97, 1),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.normal),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(50.0),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 35,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.4,
+                                        padding: const EdgeInsets.only(
+                                          right: 16.0,
+                                          left: 16,
+                                          top: 8,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: const Color.fromRGBO(
+                                              240, 240, 240, 1),
+                                          border: Border.all(
+                                            color: Colors.orange,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(50.0),
+                                        ),
+                                        child: const Center(
+                                          child: TextField(
+                                            controller: null,
+                                            style: TextStyle(
+                                              color:
+                                                  Color.fromARGB(255, 0, 0, 0),
+                                              fontSize: 12.0,
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: 'Date',
+                                              hintStyle: TextStyle(
+                                                  color: Colors.orange),
+                                              border: InputBorder.none,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      child: const TextField(
-                                        controller: null,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.0,
-                                        ),
-                                        decoration: InputDecoration(
-                                          hintText: 'Enter text',
-                                          border: InputBorder.none,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 50,
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            child: Column(
-                              children: [
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'End Time',
-                                      style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(243, 149, 97, 1),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 30,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 16.0),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.orange,
-                                          width: 2.0,
+                            Container(
+                              height: 60,
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Column(
+                                children: [
+                                  const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(bottom: 4.0),
+                                        child: Text(
+                                          'End Time',
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  243, 149, 97, 1),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.normal),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(50.0),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 35,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.4,
+                                        padding: const EdgeInsets.only(
+                                          right: 16.0,
+                                          left: 16,
+                                          top: 8,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: const Color.fromRGBO(
+                                              240, 240, 240, 1),
+                                          border: Border.all(
+                                            color: Colors.orange,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(50.0),
+                                        ),
+                                        child: const Center(
+                                          child: TextField(
+                                            controller: null,
+                                            style: TextStyle(
+                                              color:
+                                                  Color.fromARGB(255, 0, 0, 0),
+                                              fontSize: 12.0,
+                                            ),
+                                            decoration: InputDecoration(
+                                              hintText: 'Date',
+                                              hintStyle: TextStyle(
+                                                  color: Colors.orange),
+                                              border: InputBorder.none,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      child: const TextField(
-                                        controller: null,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.0,
-                                        ),
-                                        decoration: InputDecoration(
-                                          hintText: 'Enter text',
-                                          border: InputBorder.none,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Container(
-                        height: 40,
-                        width: 100,
+                        width: 80,
                         child: const Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Start Time',
+                                  'Total Hour',
                                   style: TextStyle(
                                       color: Color.fromRGBO(243, 149, 97, 1),
                                       fontSize: 12,
@@ -499,10 +549,10 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Start Time',
+                                  '1 hour 0 min',
                                   style: TextStyle(
                                       color: Color.fromRGBO(243, 149, 97, 1),
-                                      fontSize: 12,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.normal),
                                 )
                               ],
@@ -510,40 +560,43 @@ class ModalBottomSheetDemo extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.0),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5.0, horizontal: 40.0),
+                                primary: const Color.fromRGBO(243, 149, 97, 1),
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 5.0, horizontal: 40.0),
-                              primary: const Color.fromRGBO(0, 176, 240, 1),
-                            ),
-                            child: const Text(
-                              'Send OTP',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
+                              child: const Text(
+                                'Submit',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Container(
                         height: 40,
                         width: 100,
-                        child: const Column(
+                        child: Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Start Time',
-                                  style: TextStyle(
+                                  playAreaName,
+                                  style: const TextStyle(
                                       color: Color.fromRGBO(243, 149, 97, 1),
                                       fontSize: 12,
                                       fontWeight: FontWeight.normal),
@@ -553,10 +606,15 @@ class ModalBottomSheetDemo extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                const Icon(
+                                  Icons.location_pin,
+                                  color: Color.fromRGBO(204, 88, 24, 1),
+                                  size: 16,
+                                ),
                                 Text(
-                                  'Start Time',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(243, 149, 97, 1),
+                                  playAreaLocation,
+                                  style: const TextStyle(
+                                      color: Color.fromRGBO(204, 88, 24, 1),
                                       fontSize: 12,
                                       fontWeight: FontWeight.normal),
                                 )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../home_screen.dart';
+import 'package:mothering_app/home_screen.dart';
+
 
 class RegisterPage extends StatelessWidget {
   @override

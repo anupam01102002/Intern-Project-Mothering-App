@@ -13,11 +13,11 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 13,
               backgroundColor: Colors.white,
               // Add profile icon image here
@@ -29,12 +29,12 @@ class _MyProfileState extends State<MyProfile> {
                 color: Color.fromRGBO(124, 218, 252, 1),
               ),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     'User Name',
                     style: TextStyle(
@@ -53,28 +53,28 @@ class _MyProfileState extends State<MyProfile> {
                 ],
               ),
             ),
-            const Icon(
+            Icon(
               Icons.arrow_drop_down,
               color: Colors.white,
             ),
           ],
         ),
-        backgroundColor: Color.fromRGBO(124, 218, 252, 1),
+        backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
         actions: <Widget>[
           badges.Badge(
             position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: Text('3'),
+            badgeContent: const Text('3'),
             child: IconButton(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               onPressed: () {},
             ),
           ),
           badges.Badge(
             position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: Text('3'),
+            badgeContent: const Text('3'),
             child: IconButton(
-              icon: Icon(Icons.notifications_outlined),
-              selectedIcon: Icon(Icons.notifications),
+              icon: const Icon(Icons.notifications_outlined),
+              selectedIcon: const Icon(Icons.notifications),
               onPressed: () {
                 // Add your notifications icon functionality here
               },
@@ -82,10 +82,10 @@ class _MyProfileState extends State<MyProfile> {
           ),
           badges.Badge(
             position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: Text('3'),
+            badgeContent: const Text('3'),
             child: IconButton(
-              icon: Icon(Icons.favorite_border),
-              selectedIcon: Icon(Icons.favorite),
+              icon: const Icon(Icons.favorite_border),
+              selectedIcon: const Icon(Icons.favorite),
               onPressed: () {
                 // Add your favorites icon functionality here
               },
@@ -93,10 +93,10 @@ class _MyProfileState extends State<MyProfile> {
           ),
           badges.Badge(
             position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: Text('3'),
+            badgeContent: const Text('3'),
             child: IconButton(
-              icon: Icon(Icons.shopping_cart_outlined),
-              selectedIcon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart_outlined),
+              selectedIcon: const Icon(Icons.shopping_cart),
               onPressed: () {
                 // Add your cart icon functionality here
               },
@@ -119,7 +119,7 @@ class _MyProfileState extends State<MyProfile> {
                 Container(
                   width: (MediaQuery.of(context).size.width * 0.08),
                   height: (MediaQuery.of(context).size.height * 0.03),
-                  color: Color.fromRGBO(124, 219, 253, 1),
+                  color: const Color.fromRGBO(124, 219, 253, 1),
                 ),
                 const SizedBox(width: 10),
                 const Text(
@@ -142,9 +142,9 @@ class _MyProfileState extends State<MyProfile> {
                   height: 100.0,
                   decoration: BoxDecoration(
                     border: Border.all(
-                        width: 2, color: Color.fromRGBO(177, 177, 177, 1)),
+                        width: 2, color: const Color.fromRGBO(177, 177, 177, 1)),
                     shape: BoxShape.circle,
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage('assets/images/Profile_image.jpg'),
                       fit: BoxFit.cover,
                     ),
@@ -161,11 +161,11 @@ class _MyProfileState extends State<MyProfile> {
                       shape: BoxShape.circle,
                       border: Border.all(
                         width: 3,
-                        color: Color.fromRGBO(177, 177, 177, 1),
+                        color: const Color.fromRGBO(177, 177, 177, 1),
                       ),
                     ),
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.camera_alt,
                         size: 20,
                       ),
@@ -189,7 +189,7 @@ class _MyProfileState extends State<MyProfile> {
                   children: [
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 60.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 60.0),
                         child: const Text(
                           'Enter Your Name',
                           style: TextStyle(
@@ -255,13 +255,13 @@ class _MyProfileState extends State<MyProfile> {
                       Theme(
                         data: ThemeData(
                           unselectedWidgetColor:
-                              Color.fromRGBO(196, 196, 196, 1),
+                              const Color.fromRGBO(196, 196, 196, 1),
                         ),
                         child: Radio(
                           value: "MOM",
                           groupValue: _selectedOption,
                           fillColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromRGBO(124, 219, 253, 1)),
+                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -269,7 +269,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                       ),
-                      Text(
+                      const Text(
                         "MOM",
                         style: TextStyle(fontSize: 14),
                       )
@@ -287,13 +287,13 @@ class _MyProfileState extends State<MyProfile> {
                       Theme(
                         data: ThemeData(
                           unselectedWidgetColor:
-                              Color.fromRGBO(196, 196, 196, 1),
+                              const Color.fromRGBO(196, 196, 196, 1),
                         ),
                         child: Radio(
                           value: "DAD",
                           groupValue: _selectedOption,
                           fillColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromRGBO(124, 219, 253, 1)),
+                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -301,7 +301,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                       ),
-                      Text(
+                      const Text(
                         "DAD",
                         style: TextStyle(fontSize: 14),
                       ),
@@ -325,13 +325,13 @@ class _MyProfileState extends State<MyProfile> {
                       Theme(
                         data: ThemeData(
                           unselectedWidgetColor:
-                              Color.fromRGBO(196, 196, 196, 1),
+                              const Color.fromRGBO(196, 196, 196, 1),
                         ),
                         child: Radio(
                           value: "I AM EXPECTING ANOTHER CHILD",
                           groupValue: _selectedOption,
                           fillColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromRGBO(124, 219, 253, 1)),
+                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -339,7 +339,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                       ),
-                      Text(
+                      const Text(
                         "I AM EXPECTING ANOTHER CHILD",
                         style: TextStyle(fontSize: 11),
                       )
@@ -367,13 +367,13 @@ class _MyProfileState extends State<MyProfile> {
                       Theme(
                         data: ThemeData(
                           unselectedWidgetColor:
-                              Color.fromRGBO(196, 196, 196, 1),
+                              const Color.fromRGBO(196, 196, 196, 1),
                         ),
                         child: Radio(
                           value: "GUARDIAN",
                           groupValue: _selectedOption,
                           fillColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromRGBO(124, 219, 253, 1)),
+                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -381,7 +381,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                       ),
-                      Text(
+                      const Text(
                         "GUARDIAN",
                         style: TextStyle(fontSize: 14),
                       )
@@ -399,13 +399,13 @@ class _MyProfileState extends State<MyProfile> {
                       Theme(
                         data: ThemeData(
                           unselectedWidgetColor:
-                              Color.fromRGBO(196, 196, 196, 1),
+                              const Color.fromRGBO(196, 196, 196, 1),
                         ),
                         child: Radio(
                           value: "EXPECTING",
                           groupValue: _selectedOption,
                           fillColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromRGBO(124, 219, 253, 1)),
+                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -413,7 +413,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                       ),
-                      Text(
+                      const Text(
                         "EXPECTING",
                         style: TextStyle(fontSize: 14),
                       )
@@ -441,13 +441,13 @@ class _MyProfileState extends State<MyProfile> {
                       Theme(
                         data: ThemeData(
                           unselectedWidgetColor:
-                              Color.fromRGBO(196, 196, 196, 1),
+                              const Color.fromRGBO(196, 196, 196, 1),
                         ),
                         child: Radio(
                           value: "TRYING TO CONCEIVE",
                           groupValue: _selectedOption,
                           fillColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromRGBO(124, 219, 253, 1)),
+                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -455,7 +455,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                       ),
-                      Text(
+                      const Text(
                         "TRYING TO CONCEIVE",
                         style: TextStyle(fontSize: 14),
                       )

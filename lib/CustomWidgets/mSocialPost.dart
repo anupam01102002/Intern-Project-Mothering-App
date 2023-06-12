@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mothering_app/Screens/other%20Screens/MSocialCommentBox.dart';
+import 'package:mothering_app/Screens/other%20Screens/mSocialProfilepage.dart';
 
 class MSocialPosts extends StatefulWidget {
   final String imagePath;
@@ -36,18 +38,27 @@ class _MSocialPostsState extends State<MSocialPosts> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 12.0),
-                  child: CircleAvatar(
-                    radius: 13,
-                    backgroundColor: Color.fromARGB(255, 0, 0, 0),
-                    // Add profile icon image here
-                    // backgroundImage: AssetImage('assets/profile_image.png'),
-                    // Use the above line if you have a custom profile image
-                    child: Icon(
-                      Icons.person,
-                      size: 25,
-                      color: Color.fromRGBO(255, 241, 241, 1),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MSocialProfileScreen()),
+                      );
+                    },
+                    child: const CircleAvatar(
+                      radius: 13,
+                      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                      // Add profile icon image here
+                      // backgroundImage: AssetImage('assets/profile_image.png'),
+                      // Use the above line if you have a custom profile image
+                      child: Icon(
+                        Icons.person,
+                        size: 25,
+                        color: Color.fromRGBO(255, 241, 241, 1),
+                      ),
                     ),
                   ),
                 ),
@@ -116,7 +127,13 @@ class _MSocialPostsState extends State<MSocialPosts> {
                     child: Row(
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MSocialCommentBox()),
+                            );
+                          },
                           icon: const Icon(
                             Icons.message_outlined,
                             size: 18,
@@ -127,21 +144,21 @@ class _MSocialPostsState extends State<MSocialPosts> {
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       size: 18,
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.wechat_sharp,
                       size: 18,
                     ),
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text('Share'),
+                    child: const Text('Share'),
                   )
                 ],
               ),
