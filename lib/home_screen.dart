@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './Screens/NavBarScreens/magazine.dart';
+import 'Screens/NavBarScreens/magazine_stories.dart';
 import './Screens/NavBarScreens/msocial.dart';
 import './Screens/NavBarScreens/playArea.dart';
 import 'Screens/NavBarScreens/shop.dart';
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       MotheringShopScreen(),
       MotheringPlayAreaScreen(),
       MotheringMsocialScreen(),
-      MotheringMagazineScreen(),
+      MotheringMagazineScreen_stories_stories(),
     ];
   }
 

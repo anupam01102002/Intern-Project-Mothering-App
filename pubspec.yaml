@@ -83,6 +83,9 @@ flutter:
     - assets/images/Add_2.png
     - assets/images/MSocial_text.png
     - assets/images/post_1.png
+    - assets/images/Magazine_logo.png
+    - assets/images/Magazine_1.png
+    - assets/images/Toddler_1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
