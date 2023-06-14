@@ -97,16 +97,12 @@ class _MotheringMagazineScreen_VideosState
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              child: Image.asset(
-                'assets/images/Magazine_1.png',
-                fit: BoxFit.fitHeight,
-              ),
-            ),
             YoutubePlayer(
               controller: _controller,
               showVideoProgressIndicator: true,
+            ),
+            Container(
+              height: 100,
             )
           ],
         ),
