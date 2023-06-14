@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar_4.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
+import 'package:mothering_app/Screens/NavBarScreens/magazine_videos.dart';
 import 'package:mothering_app/Screens/NavBarScreens/playArea.dart';
 
-class MotheringMagazineScreen_stories_stories extends StatelessWidget {
+class MotheringMagazineScreen_Stories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +24,13 @@ class MotheringMagazineScreen_stories_stories extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: null,
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0),
                           side: const BorderSide(
-                              color: Colors.blue), // Set border color to blue
+                            color: Colors.blue,
+                          ), // Set border color to blue
                         ),
                         padding: const EdgeInsets.symmetric(
                             vertical: 5.0, horizontal: 40.0),
@@ -46,7 +48,14 @@ class MotheringMagazineScreen_stories_stories extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  MotheringMagazineScreen_Videos()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0),

@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       MotheringShopScreen(),
       MotheringPlayAreaScreen(),
       MotheringMsocialScreen(),
-      MotheringMagazineScreen_stories_stories(),
+      MotheringMagazineScreen_Stories(),
     ];
   }
 
