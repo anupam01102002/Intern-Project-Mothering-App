@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mothering_app/CustomWidgets/magazineStoriesContainer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar_4.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
 import 'package:mothering_app/Screens/NavBarScreens/magazine_videos.dart';
 import 'package:mothering_app/Screens/NavBarScreens/playArea.dart';
+import 'package:mothering_app/Screens/other%20Screens/magazineStoryDetails.dart';
 
 class MotheringMagazineScreen_Stories extends StatelessWidget {
   @override
@@ -108,22 +110,33 @@ class MotheringMagazineScreen_Stories extends StatelessWidget {
                   child: Row(
                     children: [
                       MagazineSpotlightContainer(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MagazineStoryDetails(
+                                  imageUrl: 'assets/images/Toddler_1.png'),
+                            ),
+                          );
+                        },
                         SpotlightDetails:
                             'Activities that will wear down your high powered Toddler',
                         SpotlightTitle: 'Toddler',
-                        imageUrl: 'assets/images/Toddler_1.png',
+                        imageUrl_stories: 'assets/images/Toddler_1.png',
                       ),
                       MagazineSpotlightContainer(
+                        onPressed: () {},
                         SpotlightDetails:
                             'Activities that will wear down your high powered Toddler',
                         SpotlightTitle: 'Toddler',
-                        imageUrl: 'assets/images/Toddler_1.png',
+                        imageUrl_stories: 'assets/images/Toddler_1.png',
                       ),
                       MagazineSpotlightContainer(
+                        onPressed: () {},
                         SpotlightDetails:
                             'Activities that will wear down your high powered Toddler',
                         SpotlightTitle: 'Toddler',
-                        imageUrl: 'assets/images/Toddler_1.png',
+                        imageUrl_stories: 'assets/images/Toddler_1.png',
                       ),
                     ],
                   ),
@@ -131,25 +144,25 @@ class MotheringMagazineScreen_Stories extends StatelessWidget {
               ),
             ),
             MagazineStoriesContainer(
-              imageUrl: 'assets/images/Toddler_1.png',
+              imageUrl_stories: 'assets/images/Toddler_1.png',
               StoryDetails:
                   'Activities that will wear down your high powered Toddler',
               StoryTitle: 'Toddler',
             ),
             MagazineStoriesContainer(
-              imageUrl: 'assets/images/Toddler_1.png',
+              imageUrl_stories: 'assets/images/Toddler_1.png',
               StoryDetails:
                   'Activities that will wear down your high powered Toddler',
               StoryTitle: 'Toddler',
             ),
             MagazineStoriesContainer(
-              imageUrl: 'assets/images/Toddler_1.png',
+              imageUrl_stories: 'assets/images/Toddler_1.png',
               StoryDetails:
                   'Activities that will wear down your high powered Toddler',
               StoryTitle: 'Toddler',
             ),
             MagazineStoriesContainer(
-              imageUrl: 'assets/images/Toddler_1.png',
+              imageUrl_stories: 'assets/images/Toddler_1.png',
               StoryDetails:
                   'Activities that will wear down your high powered Toddler',
               StoryTitle: 'Toddler',
@@ -165,15 +178,17 @@ class MotheringMagazineScreen_Stories extends StatelessWidget {
 }
 
 class MagazineSpotlightContainer extends StatelessWidget {
-  final String imageUrl;
+  final String imageUrl_stories;
   final String SpotlightTitle;
   final String SpotlightDetails;
   final double borderRadius;
+  final VoidCallback onPressed;
 
   MagazineSpotlightContainer({
-    required this.imageUrl,
+    required this.imageUrl_stories,
     required this.SpotlightDetails,
     required this.SpotlightTitle,
+    required this.onPressed,
     this.borderRadius = 20.0,
   });
 
@@ -188,7 +203,7 @@ class MagazineSpotlightContainer extends StatelessWidget {
             height: 110,
             child: ClipRRect(
               child: Image.asset(
-                imageUrl,
+                imageUrl_stories,
                 fit: BoxFit.cover,
               ),
             ),
@@ -214,7 +229,7 @@ class MagazineSpotlightContainer extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: onPressed,
                   child: const Text(
                     'Read More',
                     style: TextStyle(
@@ -224,101 +239,6 @@ class MagazineSpotlightContainer extends StatelessWidget {
                 ),
               ],
             )),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MagazineStoriesContainer extends StatelessWidget {
-  final String imageUrl;
-  final String StoryTitle;
-  final String StoryDetails;
-  final double borderRadius;
-
-  MagazineStoriesContainer({
-    required this.imageUrl,
-    required this.StoryDetails,
-    required this.StoryTitle,
-    this.borderRadius = 20.0,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: double.infinity,
-              height: 110,
-              child: ClipRRect(
-                child: Image.asset(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 20,
-                  width: 80,
-                  color: const Color.fromRGBO(34, 200, 244, 1),
-                  child: Center(
-                    child: Text(
-                      StoryTitle,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  StoryDetails,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 12),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Container(
-                height: 30,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Mothering.in',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
-                  '3 days Ago | 1220 views',
-                  style: TextStyle(
-                    fontSize: 8,
-                  ),
-                ),
-              ),
-            ],
           ),
         ],
       ),

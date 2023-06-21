@@ -10,13 +10,14 @@ class PlayAreaDetailsScreen extends StatelessWidget {
   final int phoneNumber;
   final List<String> criteraItems;
 
-  const PlayAreaDetailsScreen(
-      {required this.playAreaDetails,
-      required this.playAreaName,
-      required this.playAreaLocation,
-      required this.phoneNumber,
-      required this.emailId,
-      required this.criteraItems});
+  const PlayAreaDetailsScreen({
+    required this.playAreaDetails,
+    required this.playAreaName,
+    required this.playAreaLocation,
+    required this.phoneNumber,
+    required this.emailId,
+    required this.criteraItems,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -124,14 +125,12 @@ class PlayAreaDetailsScreen extends StatelessWidget {
                           right: 16,
                           bottom: 8,
                         ),
-                        child: Flexible(
-                          child: Text(
-                            playAreaDetails,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                            ),
+                        child: Text(
+                          playAreaDetails,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 12,
                           ),
                         ),
                       ),
@@ -187,27 +186,28 @@ class PlayAreaDetailsScreen extends StatelessWidget {
                             itemCount: criteraItems.length,
                             itemBuilder: (context, index) {
                               return Container(
-                                  height: 30,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.circle,
-                                        size: 8,
+                                height: 30,
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.circle,
+                                      size: 8,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      criteraItems[index],
+                                      textAlign: TextAlign.start,
+                                      style: const TextStyle(
                                         color: Colors.white,
+                                        fontSize: 12,
                                       ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        criteraItems[index],
-                                        textAlign: TextAlign.start,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ));
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           ),
                         ),
@@ -232,14 +232,12 @@ class PlayAreaDetailsScreen extends StatelessWidget {
                                       right: 16,
                                       bottom: 8,
                                     ),
-                                    child: Flexible(
-                                      child: Text(
-                                        '+91 ' + '$phoneNumber',
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 12,
-                                        ),
+                                    child: Text(
+                                      '+91 $phoneNumber',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ),
@@ -261,14 +259,12 @@ class PlayAreaDetailsScreen extends StatelessWidget {
                                       right: 16,
                                       bottom: 8,
                                     ),
-                                    child: Flexible(
-                                      child: Text(
-                                        emailId,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 12,
-                                        ),
+                                    child: Text(
+                                      emailId,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ),
@@ -313,7 +309,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.06,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(20),
@@ -325,32 +321,30 @@ class ModalBottomSheetDemo extends StatelessWidget {
             showModalBottomSheet(
               context: context,
               backgroundColor: Colors.white,
-              //elevates modal bottom screen
               elevation: 10,
-              // gives rounded corner to modal bottom screen
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40.0),
               ),
               builder: (BuildContext context) {
-                // UDE : SizedBox instead of Container for whitespaces
                 return Container(
                   height: 350,
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(top: 24.0, bottom: 16),
+                            padding:
+                                const EdgeInsets.only(top: 24.0, bottom: 16),
                             child: Text(
                               'BOOK YOUR SLOT',
                               style: TextStyle(
-                                  color: Color.fromRGBO(243, 149, 97, 1),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
+                                color: Color.fromRGBO(243, 149, 97, 1),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                       Row(
@@ -372,7 +366,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(50.0),
                             ),
-                            child: const Center(
+                            child: Center(
                               child: TextField(
                                 controller: null,
                                 style: TextStyle(
@@ -399,20 +393,22 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Column(
                                 children: [
-                                  const Row(
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 4.0),
+                                        padding:
+                                            const EdgeInsets.only(bottom: 4.0),
                                         child: Text(
                                           'Start Time',
                                           style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  243, 149, 97, 1),
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.normal),
+                                            color:
+                                                Color.fromRGBO(243, 149, 97, 1),
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                   Row(
@@ -438,7 +434,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(50.0),
                                         ),
-                                        child: const Center(
+                                        child: Center(
                                           child: TextField(
                                             controller: null,
                                             style: TextStyle(
@@ -449,7 +445,8 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                             decoration: InputDecoration(
                                               hintText: 'Date',
                                               hintStyle: TextStyle(
-                                                  color: Colors.orange),
+                                                color: Colors.orange,
+                                              ),
                                               border: InputBorder.none,
                                             ),
                                           ),
@@ -465,20 +462,22 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Column(
                                 children: [
-                                  const Row(
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 4.0),
+                                        padding:
+                                            const EdgeInsets.only(bottom: 4.0),
                                         child: Text(
                                           'End Time',
                                           style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  243, 149, 97, 1),
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.normal),
+                                            color:
+                                                Color.fromRGBO(243, 149, 97, 1),
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                   Row(
@@ -504,7 +503,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(50.0),
                                         ),
-                                        child: const Center(
+                                        child: Center(
                                           child: TextField(
                                             controller: null,
                                             style: TextStyle(
@@ -515,7 +514,8 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                             decoration: InputDecoration(
                                               hintText: 'Date',
                                               hintStyle: TextStyle(
-                                                  color: Colors.orange),
+                                                color: Colors.orange,
+                                              ),
                                               border: InputBorder.none,
                                             ),
                                           ),
@@ -531,7 +531,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                       ),
                       Container(
                         width: 80,
-                        child: const Column(
+                        child: Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -539,10 +539,11 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                 Text(
                                   'Total Hour',
                                   style: TextStyle(
-                                      color: Color.fromRGBO(243, 149, 97, 1),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal),
-                                )
+                                    color: Color.fromRGBO(243, 149, 97, 1),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                               ],
                             ),
                             Row(
@@ -551,10 +552,11 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                 Text(
                                   '1 hour 0 min',
                                   style: TextStyle(
-                                      color: Color.fromRGBO(243, 149, 97, 1),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal),
-                                )
+                                    color: Color.fromRGBO(243, 149, 97, 1),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -572,10 +574,12 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(50.0),
                                 ),
                                 padding: const EdgeInsets.symmetric(
-                                    vertical: 5.0, horizontal: 40.0),
+                                  vertical: 5.0,
+                                  horizontal: 40.0,
+                                ),
                                 primary: const Color.fromRGBO(243, 149, 97, 1),
                               ),
-                              child: const Text(
+                              child: Text(
                                 'Submit',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -596,28 +600,30 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               children: [
                                 Text(
                                   playAreaName,
-                                  style: const TextStyle(
-                                      color: Color.fromRGBO(243, 149, 97, 1),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal),
-                                )
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(243, 149, 97, 1),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.location_pin,
                                   color: Color.fromRGBO(204, 88, 24, 1),
                                   size: 16,
                                 ),
                                 Text(
                                   playAreaLocation,
-                                  style: const TextStyle(
-                                      color: Color.fromRGBO(204, 88, 24, 1),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal),
-                                )
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(204, 88, 24, 1),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -629,9 +635,11 @@ class ModalBottomSheetDemo extends StatelessWidget {
               },
             );
           },
-          child: const Text(
+          child: Text(
             'BOOK YOUR SLOT',
-            style: TextStyle(color: Color.fromRGBO(243, 149, 97, 1)),
+            style: TextStyle(
+              color: Color.fromRGBO(243, 149, 97, 1),
+            ),
           ),
         ),
       ),
