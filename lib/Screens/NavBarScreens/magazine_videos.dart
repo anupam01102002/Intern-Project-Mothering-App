@@ -3,8 +3,12 @@ import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar_4.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
 import 'package:mothering_app/Screens/NavBarScreens/magazine_stories.dart';
-import 'package:mothering_app/Screens/NavBarScreens/playArea.dart';
+import 'package:mothering_app/Screens/other%20Screens/magazineVideoDetails.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
+import 'package:flutter/services.dart';
+import 'dart:io';
+import 'dart:typed_data';
 
 class MotheringMagazineScreen_Videos extends StatefulWidget {
   @override
@@ -15,14 +19,25 @@ class MotheringMagazineScreen_Videos extends StatefulWidget {
 class _MotheringMagazineScreen_VideosState
     extends State<MotheringMagazineScreen_Videos> {
   final videoUrl = 'https://youtu.be/ROizaaDphtU';
-
+  String? _thumbnailUrl;
   late YoutubePlayerController _controller;
 
+  @override
   void initState() {
+    super.initState();
+
     final videoId = YoutubePlayer.convertUrlToId(videoUrl);
     _controller = YoutubePlayerController(
       initialVideoId: videoId!,
       flags: const YoutubePlayerFlags(autoPlay: false),
+    );
+    generateThumbnail();
+  }
+
+  void generateThumbnail() async {
+    _thumbnailUrl = await VideoThumbnail.thumbnailFile(
+      video: 'https://youtu.be/ROizaaDphtU',
+      imageFormat: ImageFormat.WEBP,
     );
   }
 
@@ -33,6 +48,7 @@ class _MotheringMagazineScreen_VideosState
       drawer: MotheringAppBarDrawer(),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 60,
@@ -97,6 +113,31 @@ class _MotheringMagazineScreen_VideosState
                 ],
               ),
             ),
+            if (_thumbnailUrl != null)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Thumbnail using Video url :"),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.file(File(_thumbnailUrl!)),
+                      const CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.black45,
+                        child: Icon(
+                          Icons.play_arrow,
+                          size: 40,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             YoutubePlayer(
               controller: _controller,
               showVideoProgressIndicator: true,
@@ -121,25 +162,33 @@ class _MotheringMagazineScreen_VideosState
                   child: Row(
                     children: [
                       MagazineFeaturedContainer(
-                        imageUrl_stories: 'imageUrl_stories',
+                        imageUrl_Shows: 'imageUrl_Shows',
+                        SpotlightDetails: 'SpotlightDetails',
+                        SpotlightTitle: 'SpotlightTitle',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MagazineVideoDetails(
+                                  imageUrl: 'assets/images/Toddler_1.png'),
+                            ),
+                          );
+                        },
+                      ),
+                      MagazineFeaturedContainer(
+                        imageUrl_Shows: 'imageUrl_Shows',
                         SpotlightDetails: 'SpotlightDetails',
                         SpotlightTitle: 'SpotlightTitle',
                         onPressed: () {},
                       ),
                       MagazineFeaturedContainer(
-                        imageUrl_stories: 'imageUrl_stories',
+                        imageUrl_Shows: 'imageUrl_Shows',
                         SpotlightDetails: 'SpotlightDetails',
                         SpotlightTitle: 'SpotlightTitle',
                         onPressed: () {},
                       ),
                       MagazineFeaturedContainer(
-                        imageUrl_stories: 'imageUrl_stories',
-                        SpotlightDetails: 'SpotlightDetails',
-                        SpotlightTitle: 'SpotlightTitle',
-                        onPressed: () {},
-                      ),
-                      MagazineFeaturedContainer(
-                        imageUrl_stories: 'imageUrl_stories',
+                        imageUrl_Shows: 'imageUrl_Shows',
                         SpotlightDetails: 'SpotlightDetails',
                         SpotlightTitle: 'SpotlightTitle',
                         onPressed: () {},
@@ -207,11 +256,115 @@ class _MotheringMagazineScreen_VideosState
                 ],
               ),
             ),
-            Subtitle(
+            const Subtitle(
               containerHeight: 32,
               containerWidth: 8,
               enterText: 'Show (s)',
               textColor: Color.fromRGBO(0, 124, 168, 1),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 16.0, top: 8),
+              child: Text(
+                'New',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color.fromRGBO(0, 124, 168, 1),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 8.0,
+              ),
+              child: Container(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.35,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 3,
+              width: double.infinity,
+              color: const Color.fromRGBO(0, 124, 168, 1),
+            ),
+            Container(
+              height: 15,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 16.0, top: 8),
+              child: Text(
+                'Brands - In Focus',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color.fromRGBO(0, 124, 168, 1),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 8.0,
+              ),
+              child: Container(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.35,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                      MagazineNewContainer(
+                        imageUrl_Shows: 'assets/images/Add_1.png',
+                        videoTitle: 'videoTitle',
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
             Container(
               height: 100,
@@ -224,14 +377,14 @@ class _MotheringMagazineScreen_VideosState
 }
 
 class MagazineFeaturedContainer extends StatelessWidget {
-  final String imageUrl_stories;
+  final String imageUrl_Shows;
   final String SpotlightTitle;
   final String SpotlightDetails;
   final double borderRadius;
   final VoidCallback onPressed;
 
   MagazineFeaturedContainer({
-    required this.imageUrl_stories,
+    required this.imageUrl_Shows,
     required this.SpotlightDetails,
     required this.SpotlightTitle,
     required this.onPressed,
@@ -273,9 +426,7 @@ class MagazineFeaturedContainer extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   TextButton(
-                    onPressed: () {
-                      // Handle button press
-                    },
+                    onPressed: onPressed,
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromRGBO(116, 116, 116, 0.7),
                       padding: const EdgeInsets.symmetric(
@@ -295,6 +446,49 @@ class MagazineFeaturedContainer extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MagazineNewContainer extends StatelessWidget {
+  final String imageUrl_Shows;
+  final String videoTitle;
+  final VoidCallback onPressed;
+
+  MagazineNewContainer({
+    required this.imageUrl_Shows,
+    required this.videoTitle,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding:
+              const EdgeInsets.only(right: 8.0, left: 8.0, top: 12, bottom: 4),
+          child: Container(
+            width: 150,
+            height: 180,
+            child: Image.asset(
+              imageUrl_Shows,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Container(
+            height: 15,
+            child: Text(
+              videoTitle,
+              style: const TextStyle(fontSize: 12),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
