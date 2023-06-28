@@ -11,7 +11,7 @@ void main() {
     DeviceOrientation.portraitDown,
   ]);
   runApp(MyApp());
-}
+} 
 
 class MyApp extends StatelessWidget {
   @override

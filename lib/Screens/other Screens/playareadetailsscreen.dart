@@ -280,7 +280,7 @@ class PlayAreaDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          ModalBottomSheetDemo(
+          ModalBookYourSlot(
             playAreaName: playAreaName,
             playAreaLocation: playAreaLocation,
           ),
@@ -290,11 +290,11 @@ class PlayAreaDetailsScreen extends StatelessWidget {
   }
 }
 
-class ModalBottomSheetDemo extends StatelessWidget {
+class ModalBookYourSlot extends StatelessWidget {
   final String playAreaName;
   final String playAreaLocation;
 
-  const ModalBottomSheetDemo({
+  const ModalBookYourSlot({
     required this.playAreaName,
     required this.playAreaLocation,
   });
@@ -309,7 +309,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.06,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(20),
@@ -330,12 +330,12 @@ class ModalBottomSheetDemo extends StatelessWidget {
                   height: 350,
                   child: Column(
                     children: <Widget>[
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
                             padding:
-                                const EdgeInsets.only(top: 24.0, bottom: 16),
+                                EdgeInsets.only(top: 24.0, bottom: 16),
                             child: Text(
                               'BOOK YOUR SLOT',
                               style: TextStyle(
@@ -366,7 +366,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(50.0),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: TextField(
                                 controller: null,
                                 style: TextStyle(
@@ -393,12 +393,12 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Column(
                                 children: [
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(bottom: 4.0),
+                                            EdgeInsets.only(bottom: 4.0),
                                         child: Text(
                                           'Start Time',
                                           style: TextStyle(
@@ -434,7 +434,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(50.0),
                                         ),
-                                        child: Center(
+                                        child: const Center(
                                           child: TextField(
                                             controller: null,
                                             style: TextStyle(
@@ -462,12 +462,12 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Column(
                                 children: [
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(bottom: 4.0),
+                                            EdgeInsets.only(bottom: 4.0),
                                         child: Text(
                                           'End Time',
                                           style: TextStyle(
@@ -503,7 +503,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(50.0),
                                         ),
-                                        child: Center(
+                                        child: const Center(
                                           child: TextField(
                                             controller: null,
                                             style: TextStyle(
@@ -531,7 +531,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                       ),
                       Container(
                         width: 80,
-                        child: Column(
+                        child: const Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -579,7 +579,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                                 ),
                                 primary: const Color.fromRGBO(243, 149, 97, 1),
                               ),
-                              child: Text(
+                              child: const Text(
                                 'Submit',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -600,7 +600,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
                               children: [
                                 Text(
                                   playAreaName,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromRGBO(243, 149, 97, 1),
                                     fontSize: 12,
                                     fontWeight: FontWeight.normal,
@@ -611,14 +611,14 @@ class ModalBottomSheetDemo extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.location_pin,
                                   color: Color.fromRGBO(204, 88, 24, 1),
                                   size: 16,
                                 ),
                                 Text(
                                   playAreaLocation,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Color.fromRGBO(204, 88, 24, 1),
                                     fontSize: 12,
                                     fontWeight: FontWeight.normal,
@@ -635,7 +635,7 @@ class ModalBottomSheetDemo extends StatelessWidget {
               },
             );
           },
-          child: Text(
+          child: const Text(
             'BOOK YOUR SLOT',
             style: TextStyle(
               color: Color.fromRGBO(243, 149, 97, 1),

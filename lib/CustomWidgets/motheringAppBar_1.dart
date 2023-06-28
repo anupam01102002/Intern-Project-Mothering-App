@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
-import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
 
 class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -29,7 +28,7 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'User Name',
+                  'Shop For',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
@@ -52,27 +51,39 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
-      backgroundColor: Color.fromRGBO(124, 218, 252, 1),
+      backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
       actions: <Widget>[
         badges.Badge(
+          showBadge: false,
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
-          badgeContent: Text('3'),
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(255, 122, 122, 1),
+          ),
+          badgeContent: const Text(
+            '3',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           child: IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ShoppingScreen()),
-              );
-            },
+            icon: const Icon(Icons.search),
+            onPressed: () {},
           ),
         ),
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
-          badgeContent: Text('3'),
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(255, 122, 122, 1),
+          ),
+          badgeContent: const Text(
+            '3',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           child: IconButton(
-            icon: Icon(Icons.notifications_outlined),
-            selectedIcon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications_outlined),
+            selectedIcon: const Icon(Icons.notifications),
             onPressed: () {
               // Add your notifications icon functionality here
             },
@@ -80,10 +91,18 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
         ),
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
-          badgeContent: Text('3'),
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(255, 122, 122, 1),
+          ),
+          badgeContent: const Text(
+            '3',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           child: IconButton(
-            icon: Icon(Icons.favorite_border),
-            selectedIcon: Icon(Icons.favorite),
+            icon: const Icon(Icons.favorite_border),
+            selectedIcon: const Icon(Icons.favorite),
             onPressed: () {
               // Add your favorites icon functionality here
             },
@@ -91,10 +110,18 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
         ),
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: -3, end: -1),
-          badgeContent: Text('3'),
+          badgeStyle: const badges.BadgeStyle(
+            badgeColor: Color.fromRGBO(255, 122, 122, 1),
+          ),
+          badgeContent: const Text(
+            '3',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           child: IconButton(
-            icon: Icon(Icons.shopping_cart_outlined),
-            selectedIcon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart_outlined),
+            selectedIcon: const Icon(Icons.shopping_cart),
             onPressed: () {
               // Add your cart icon functionality here
             },
@@ -105,5 +132,5 @@ class MotheringAppBar_1 extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
