@@ -62,6 +62,7 @@ class MotheringShopScreen extends StatelessWidget {
             // Shop by Category Text
             const Subtitle(
                 textColor: Color.fromRGBO(0, 124, 168, 1),
+                containerColor: Color.fromRGBO(0, 124, 168, 1),
                 containerHeight: 35,
                 containerWidth: 8,
                 enterText: 'Shop By Category'),
@@ -173,7 +174,9 @@ class MotheringShopScreen extends StatelessWidget {
                 textColor: Color.fromRGBO(0, 124, 168, 1),
                 containerHeight: 35,
                 containerWidth: 8,
-                enterText: 'New Arrival'),
+                enterText: 'New Arrival',
+                containerColor: Color.fromRGBO(0, 124, 168, 1),),
+                
             //List View
             Padding(
               padding: const EdgeInsets.only(left: 16),

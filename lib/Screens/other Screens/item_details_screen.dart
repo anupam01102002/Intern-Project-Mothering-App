@@ -479,6 +479,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                     ),
                     const Subtitle(
                       textColor: Color.fromRGBO(124, 218, 252, 1),
+                      containerColor: Color.fromRGBO(0, 124, 168, 1),
                       containerHeight: 32,
                       containerWidth: 16,
                       enterText: 'YOU MAY ALSO LIKE',

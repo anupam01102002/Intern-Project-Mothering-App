@@ -147,6 +147,7 @@ class _MotheringMagazineScreen_VideosState
               containerWidth: 8,
               enterText: 'Featured',
               textColor: Color.fromRGBO(124, 218, 252, 1),
+              containerColor: Color.fromRGBO(0, 124, 168, 1),
             ),
             Padding(
               padding: const EdgeInsets.only(
@@ -261,6 +262,7 @@ class _MotheringMagazineScreen_VideosState
               containerWidth: 8,
               enterText: 'Show (s)',
               textColor: Color.fromRGBO(0, 124, 168, 1),
+              containerColor: Color.fromRGBO(0, 124, 168, 1),
             ),
             const Padding(
               padding: EdgeInsets.only(left: 16.0, top: 8),

@@ -94,6 +94,7 @@ class MotheringMagazineScreen_Stories extends StatelessWidget {
                 containerWidth: 8,
                 enterText: 'Spotlight',
                 textColor: Color.fromRGBO(0, 124, 168, 1),
+                containerColor: Color.fromRGBO(0, 124, 168, 1),
               ),
             ),
             Padding(

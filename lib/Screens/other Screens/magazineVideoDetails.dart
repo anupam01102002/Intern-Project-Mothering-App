@@ -237,6 +237,7 @@ class _MagazineVideoDetailsState extends State<MagazineVideoDetails> {
               containerWidth: 8,
               enterText: 'Related Shows',
               textColor: Color.fromRGBO(0, 124, 168, 1),
+              containerColor: Color.fromRGBO(0, 124, 168, 1),
             ),
             Padding(
               padding: const EdgeInsets.only(

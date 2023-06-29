@@ -178,6 +178,7 @@ class _MagazineStoryDetailsState extends State<MagazineStoryDetails> {
               containerWidth: 6,
               enterText: 'More For You',
               textColor: Color.fromRGBO(0, 124, 168, 1),
+              containerColor: Color.fromRGBO(0, 124, 168, 1),
             ),
             MagazineStoriesContainer(
               imageUrl_stories: 'assets/images/Toddler_1.png',

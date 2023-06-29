@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mothering_app/CustomWidgets/MotheringAppBar_1.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
+import 'package:mothering_app/Screens/other%20Screens/newaddress.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class AddressbookScreen extends StatelessWidget {
@@ -12,25 +13,65 @@ class AddressbookScreen extends StatelessWidget {
       drawer: MotheringAppBarDrawer(),
       body: Column(
         children: [
-          AddressDetailsContainer(
-            uesrName: 'uesrName',
-            blockNo: 'blockNo',
-            pincode: 'pincode',
-            cityName: 'cityName',
-            landmarkName: 'landmarkName',
-            streetAddress: 'streetAddress',
-            phoneNumber: 'phoneNumber',
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Material(
+              elevation: 5,
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AddressTagContainer(tagName: 'HOME'),
+                            AddressDetailsContainer(
+                              userName: 'userName',
+                              blockNo: 'blockNo',
+                              pincode: 'pincode',
+                              cityName: 'cityName',
+                              landmarkName: 'landmarkName',
+                              streetAddress: 'streetAddress',
+                              phoneNumber: 'phoneNumber',
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Delete_Button(),
+                            SizedBox(
+                              width: 12,
+                            ),
+                            Edit_Button(),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(
               top: 8,
-              right: 4,
-              left: 4,
+              right: 8,
+              left: 8,
               bottom: 8,
             ),
             child: Container(
               width: double.infinity,
-              height: 60,
+              height: 52,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -45,13 +86,13 @@ class AddressbookScreen extends StatelessWidget {
                   Center(
                     child: TextButton(
                       onPressed: () {
-                        // pushNewScreen(
-                        //   context,
-                        //   screen: AddressbookScreen(),
-                        //   withNavBar: false, // OPTIONAL VALUE. True by default.
-                        //   pageTransitionAnimation:
-                        //       PageTransitionAnimation.cupertino,
-                        // );
+                        pushNewScreen(
+                          context,
+                          screen: NewAddress(),
+                          withNavBar: true, // OPTIONAL VALUE. True by default.
+                          pageTransitionAnimation:
+                              PageTransitionAnimation.cupertino,
+                        );
                       },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +105,7 @@ class AddressbookScreen extends StatelessWidget {
                             'Add new Address',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 16,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -91,18 +132,21 @@ class AddressTagContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black, width: 0.5),
-        borderRadius: BorderRadius.circular(2),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 6),
-        child: Text(
-          tagName,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 12,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 2),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 0.5),
+          borderRadius: BorderRadius.circular(2),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 6),
+          child: Text(
+            tagName,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+            ),
           ),
         ),
       ),
@@ -111,7 +155,7 @@ class AddressTagContainer extends StatelessWidget {
 }
 
 class AddressDetailsContainer extends StatelessWidget {
-  final String uesrName;
+  final String userName;
   final String blockNo;
   final String pincode;
   final String cityName;
@@ -120,7 +164,7 @@ class AddressDetailsContainer extends StatelessWidget {
   final String phoneNumber;
 
   AddressDetailsContainer({
-    required this.uesrName,
+    required this.userName,
     required this.blockNo,
     required this.pincode,
     required this.cityName,
@@ -138,7 +182,7 @@ class AddressDetailsContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              uesrName,
+              userName,
               style: const TextStyle(
                   color: Colors.black,
                   fontSize: 14,
@@ -183,6 +227,54 @@ class AddressDetailsContainer extends StatelessWidget {
                   fontWeight: FontWeight.normal),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Delete_Button extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 2,
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        height: 30,
+        width: 30,
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(246, 246, 246, 1),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.delete),
+          color: Color.fromRGBO(170, 0, 0, 1),
+          iconSize: 15,
+        ),
+      ),
+    );
+  }
+}
+
+class Edit_Button extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 2,
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        height: 30,
+        width: 30,
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(246, 246, 246, 1),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.edit_square),
+          color: Color.fromRGBO(3, 106, 181, 1),
+          iconSize: 15,
         ),
       ),
     );

@@ -94,6 +94,7 @@ class MotheringHomeScreen extends StatelessWidget {
                   textColor: Color.fromRGBO(0, 124, 168, 1),
                   containerHeight: 32,
                   containerWidth: 6,
+                  containerColor: Color.fromRGBO(0, 124, 168, 1),
                   enterText: 'Bestseller'),
               // scrollable Cards
               Padding(

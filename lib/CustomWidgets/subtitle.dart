@@ -5,12 +5,14 @@ class Subtitle extends StatelessWidget {
   final double containerWidth;
   final String enterText;
   final Color textColor;
+  final Color containerColor;
 
   const Subtitle({
     required this.containerHeight,
     required this.containerWidth,
     required this.enterText,
     required this.textColor,
+    required this.containerColor,
   });
 
   @override
@@ -25,7 +27,7 @@ class Subtitle extends StatelessWidget {
                 height: containerHeight,
                 width: containerWidth,
                 decoration: BoxDecoration(
-                  color: textColor,
+                  color: containerColor,
                 ),
               ),
             ],
