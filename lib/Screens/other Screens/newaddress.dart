@@ -8,15 +8,23 @@ class NewAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: MotheringAppBar_1(),
-        drawer: MotheringAppBarDrawer(),
-        body: const Subtitle(
-          containerHeight: 20,
-          containerWidth: 10,
-          enterText: 'Add New Address',
-          textColor: Colors.black,
-          containerColor: Color.fromRGBO(124, 218, 252, 1),
-        ));
+      resizeToAvoidBottomInset: false,
+      appBar: MotheringAppBar_1(),
+      drawer: MotheringAppBarDrawer(),
+      body: const Column(
+        children: [
+          SizedBox(
+            height: 5,
+          ),
+          Subtitle(
+            containerHeight: 20,
+            containerWidth: 10,
+            enterText: 'Add New Address',
+            textColor: Colors.black,
+            containerColor: Color.fromRGBO(124, 218, 252, 1),
+          ),
+        ],
+      ),
+    );
   }
 }

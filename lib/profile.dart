@@ -1,3 +1,5 @@
+import 'dart:js';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -8,6 +10,8 @@ class MyProfile extends StatefulWidget {
 
 class _MyProfileState extends State<MyProfile> {
   String _selectedOption = 'MOM';
+  // PickedFile _imageFile;
+  // final ImagePicker _picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +146,8 @@ class _MyProfileState extends State<MyProfile> {
                   height: 100.0,
                   decoration: BoxDecoration(
                     border: Border.all(
-                        width: 2, color: const Color.fromRGBO(177, 177, 177, 1)),
+                        width: 2,
+                        color: const Color.fromRGBO(177, 177, 177, 1)),
                     shape: BoxShape.circle,
                     image: const DecorationImage(
                       image: AssetImage('assets/images/Profile_image.jpg'),
@@ -260,8 +265,8 @@ class _MyProfileState extends State<MyProfile> {
                         child: Radio(
                           value: "MOM",
                           groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
+                          fillColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -292,8 +297,8 @@ class _MyProfileState extends State<MyProfile> {
                         child: Radio(
                           value: "DAD",
                           groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
+                          fillColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -330,8 +335,8 @@ class _MyProfileState extends State<MyProfile> {
                         child: Radio(
                           value: "I AM EXPECTING ANOTHER CHILD",
                           groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
+                          fillColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -372,8 +377,8 @@ class _MyProfileState extends State<MyProfile> {
                         child: Radio(
                           value: "GUARDIAN",
                           groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
+                          fillColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -404,8 +409,8 @@ class _MyProfileState extends State<MyProfile> {
                         child: Radio(
                           value: "EXPECTING",
                           groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
+                          fillColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -446,8 +451,8 @@ class _MyProfileState extends State<MyProfile> {
                         child: Radio(
                           value: "TRYING TO CONCEIVE",
                           groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromRGBO(124, 219, 253, 1)),
+                          fillColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromRGBO(124, 219, 253, 1)),
                           onChanged: (value) {
                             setState(() {
                               _selectedOption = value!;
@@ -490,3 +495,52 @@ class _MyProfileState extends State<MyProfile> {
     );
   }
 }
+
+// Widget bottomSheet() {
+//   return Container(
+//     height: 100.0,
+//     width: double.infinity,
+//     margin: const EdgeInsets.symmetric(
+//       horizontal: 20,
+//       vertical: 20,
+//     ),
+//     child: Column(
+//       children: <Widget>[
+//         const Text(
+//           "Choose Profile photo",
+//           style: TextStyle(
+//             fontSize: 20.0,
+//           ),
+//         ),
+//         const SizedBox(
+//           height: 20,
+//         ),
+//         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+//           IconButton(
+//             icon: const Icon(Icons.camera),
+//             onPressed: () {
+//               // takePhoto(ImageSource.camera);
+//             },
+//           ),
+//           Text('data'),
+//           IconButton(
+//             icon: const Icon(Icons.image),
+//             onPressed: () {
+//               // takePhoto(ImageSource.gallery);
+//             },
+//           ),
+//           Text('data')
+//         ])
+//       ],
+//     ),
+//   );
+// }
+
+// void takePhoto(ImageSource source) async {
+//   final pickedFile = await _picker.getImage(
+//     source: source,
+//   );
+//   setState(() {
+//     _imageFile = pickedFile;
+//   });
+// }

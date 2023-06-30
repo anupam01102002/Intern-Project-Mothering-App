@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mothering_app/profile.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class MotheringAppBarDrawer extends StatelessWidget {
   @override
@@ -62,9 +63,12 @@ class MotheringAppBarDrawer extends StatelessWidget {
                         color: Colors.white,
                       ), // Replace with the desired icon
                       onPressed: () {
-                        Navigator.push(
+                        pushNewScreen(
                           context,
-                          MaterialPageRoute(builder: (context) => MyProfile()),
+                          screen: MyProfile(),
+                          withNavBar: false, // OPTIONAL VALUE. True by default.
+                          pageTransitionAnimation:
+                              PageTransitionAnimation.cupertino,
                         );
                       },
                     )
@@ -91,6 +95,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                             icon: const Icon(
                               Icons.person,
                               color: Color.fromRGBO(150, 150, 150, 1),
+                              size: 20,
                             ),
                             onPressed: () {
                               // Handle Home icon tap
@@ -103,7 +108,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Color.fromRGBO(150, 150, 150, 1),
-                                fontSize: 12),
+                                fontSize: 10),
                           ),
                         ),
                       ],
@@ -116,9 +121,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
                           height:
                               32, // Adjust the height of the SizedBox as needed
                           child: IconButton(
-                            icon: const Icon(
-                              Icons.shopping_cart,
-                              color: Color.fromRGBO(150, 150, 150, 1),
+                            icon: Image.asset(
+                              'assets/images/Vector_orderHistory.png',
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.contain,
                             ),
                             onPressed: () {
                               // Handle Shop icon tap
@@ -131,7 +138,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Color.fromRGBO(150, 150, 150, 1),
-                                fontSize: 12),
+                                fontSize: 10),
                           ),
                         ),
                       ],
@@ -144,9 +151,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
                           height:
                               32, // Adjust the height of the SizedBox as needed
                           child: IconButton(
-                            icon: const Icon(
-                              Icons.fire_truck,
-                              color: Color.fromRGBO(150, 150, 150, 1),
+                            icon: Image.asset(
+                              'assets/images/Vector_trackorder.png',
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.contain,
                             ),
                             onPressed: () {
                               // Handle History icon tap
@@ -155,11 +164,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
                         ),
                         const Flexible(
                           child: Text(
-                            'History',
+                            'Track Order',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Color.fromRGBO(150, 150, 150, 1),
-                                fontSize: 12),
+                                fontSize: 10),
                           ),
                         ),
                       ],
@@ -172,9 +181,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
                           height:
                               32, // Adjust the height of the SizedBox as needed
                           child: IconButton(
-                            icon: const Icon(
-                              Icons.compare_arrows,
-                              color: Color.fromRGBO(150, 150, 150, 1),
+                            icon: Image.asset(
+                              'assets/images/Vector_cashrefund.png',
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.contain,
                             ),
                             onPressed: () {
                               // Handle Search icon tap
@@ -187,7 +198,7 @@ class MotheringAppBarDrawer extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Color.fromRGBO(150, 150, 150, 1),
-                                fontSize: 12),
+                                fontSize: 10),
                           ),
                         ),
                       ],
@@ -256,15 +267,25 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: const Icon(
-                  Icons.blender_outlined,
-                  size: 20,
-                ),
-                title: const Text(
-                  'Baby Hug',
-                  style: TextStyle(
-                    color: Color.fromRGBO(124, 218, 252, 1),
+                leading: Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Image.asset(
+                    'assets/images/Vector_babyhug.png',
+                    height: 18,
+                    width: 18,
+                    fit: BoxFit.contain,
                   ),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/Vector_babyhug_title.png',
+                      height: 80,
+                      width: 80,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
                 ),
                 onTap: () {
                   // Handle Home item tap
@@ -274,15 +295,25 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: const Icon(
-                  Icons.blender_outlined,
-                  size: 20,
-                ),
-                title: const Text(
-                  'Baby Hug',
-                  style: TextStyle(
-                    color: Color.fromRGBO(124, 218, 252, 1),
+                leading: Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Image.asset(
+                    'assets/images/Vector_babyhug.png',
+                    height: 18,
+                    width: 18,
+                    fit: BoxFit.contain,
                   ),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/Vector_babyhug_title.png',
+                      height: 80,
+                      width: 80,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
                 ),
                 onTap: () {
                   // Handle Home item tap
@@ -292,8 +323,12 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: const Text(
-                  'My Activity',
+                leading: const Column(
+                  children: [
+                    Text(
+                      'My Activity',
+                    ),
+                  ],
                 ),
                 onTap: () {
                   // Handle Home item tap
@@ -314,15 +349,26 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: const Icon(
-                  Icons.blender_outlined,
-                  size: 20,
-                ),
-                title: const Text(
-                  'Baby Hug',
-                  style: TextStyle(
-                    color: Color.fromRGBO(124, 218, 252, 1),
+                leading: Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Image.asset(
+                    'assets/images/Vector_babyhug.png',
+                    height: 18,
+                    width: 18,
+                    fit: BoxFit.contain,
                   ),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'assets/images/Vector_babyhug_title.png',
+                      height: 80,
+                      width: 80,
+                      fit: BoxFit.contain,
+                    ),
+                    const Icon(Icons.add)
+                  ],
                 ),
                 onTap: () {
                   // Handle Home item tap
@@ -332,15 +378,26 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: const Icon(
-                  Icons.blender_outlined,
-                  size: 20,
-                ),
-                title: const Text(
-                  'Baby Hug',
-                  style: TextStyle(
-                    color: Color.fromRGBO(124, 218, 252, 1),
+                leading: Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Image.asset(
+                    'assets/images/Vector_babyhug.png',
+                    height: 18,
+                    width: 18,
+                    fit: BoxFit.contain,
                   ),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'assets/images/Vector_babyhug_title.png',
+                      height: 80,
+                      width: 80,
+                      fit: BoxFit.contain,
+                    ),
+                    const Icon(Icons.add)
+                  ],
                 ),
                 onTap: () {
                   // Handle Home item tap
@@ -389,9 +446,11 @@ class MotheringAppBarDrawer extends StatelessWidget {
             Container(
               height: 30, // Set the height of the ListTile to 15
               child: ListTile(
-                leading: const Icon(
-                  Icons.rounded_corner,
-                  size: 20,
+                leading: Image.asset(
+                  'assets/images/Vector_policies.png',
+                  height: 18,
+                  width: 18,
+                  fit: BoxFit.contain,
                 ),
                 title: const Text('Policies'),
                 onTap: () {
