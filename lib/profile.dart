@@ -1,5 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
+import 'package:image_picker/image_picker.dart';
+import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
+import 'package:mothering_app/CustomWidgets/motheringAppBar_1.dart';
+import 'package:mothering_app/CustomWidgets/subtitle.dart';
 
 class MyProfile extends StatefulWidget {
   @override
@@ -8,537 +12,573 @@ class MyProfile extends StatefulWidget {
 
 class _MyProfileState extends State<MyProfile> {
   String _selectedOption = 'MOM';
-  // PickedFile _imageFile;
-  // final ImagePicker _picker = ImagePicker();
+  String _selectedExpectingOption = 'EXPECTING MOTHER';
+  File? _image;
+  bool _showDateInput = false;
+  bool _showExpectingInput = false;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 13,
-              backgroundColor: Colors.white,
-              // Add profile icon image here
-              // backgroundImage: AssetImage('assets/profile_image.png'),
-              // Use the above line if you have a custom profile image
-              child: Icon(
-                Icons.person,
-                size: 20,
-                color: Color.fromRGBO(124, 218, 252, 1),
+  Future getImage(ImageSource source) async {
+    final image = await ImagePicker().pickImage(source: source);
+    if (image == null) return;
+
+    final imageTemporary = File(image.path);
+
+    setState(() {
+      this._image = imageTemporary;
+    });
+  }
+
+  Widget bottomSheet() {
+    return Container(
+      height: 100.0,
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        children: <Widget>[
+          const Text(
+            "Choose Profile Photo",
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.camera),
+                onPressed: () {
+                  getImage(ImageSource.camera);
+                },
               ),
-            ),
-            SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'User Name',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    'All',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              const Text('Open Camera'),
+              IconButton(
+                icon: const Icon(Icons.image),
+                onPressed: () {
+                  getImage(ImageSource.gallery);
+                },
               ),
-            ),
-            Icon(
-              Icons.arrow_drop_down,
-              color: Colors.white,
-            ),
-          ],
-        ),
-        backgroundColor: const Color.fromRGBO(124, 218, 252, 1),
-        actions: <Widget>[
-          badges.Badge(
-            position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: const Text('3'),
-            child: IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
-          ),
-          badges.Badge(
-            position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: const Text('3'),
-            child: IconButton(
-              icon: const Icon(Icons.notifications_outlined),
-              selectedIcon: const Icon(Icons.notifications),
-              onPressed: () {
-                // Add your notifications icon functionality here
-              },
-            ),
-          ),
-          badges.Badge(
-            position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: const Text('3'),
-            child: IconButton(
-              icon: const Icon(Icons.favorite_border),
-              selectedIcon: const Icon(Icons.favorite),
-              onPressed: () {
-                // Add your favorites icon functionality here
-              },
-            ),
-          ),
-          badges.Badge(
-            position: badges.BadgePosition.topEnd(top: -3, end: -1),
-            badgeContent: const Text('3'),
-            child: IconButton(
-              icon: const Icon(Icons.shopping_cart_outlined),
-              selectedIcon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                // Add your cart icon functionality here
-              },
-            ),
+              const Text('Upload from gallery'),
+            ],
           ),
         ],
       ),
-      resizeToAvoidBottomInset: false,
-      backgroundColor: const Color.fromRGBO(227, 248, 255, 1),
-      body: Center(
-        child: Column(
+    );
+  }
+
+  Widget radioContainer(String name) {
+    return Container(
+      height: 35,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 0,
+          right: 20,
+          top: 0,
+          bottom: 0,
+        ),
+        child: Row(
           children: [
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.03),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  width: (MediaQuery.of(context).size.width * 0.08),
-                  height: (MediaQuery.of(context).size.height * 0.03),
-                  color: const Color.fromRGBO(124, 219, 253, 1),
+            Theme(
+              data: ThemeData(
+                unselectedWidgetColor: const Color.fromRGBO(196, 196, 196, 1),
+              ),
+              child: Radio(
+                value: name,
+                groupValue: _selectedOption,
+                fillColor: MaterialStateColor.resolveWith(
+                  (states) => const Color.fromRGBO(124, 219, 253, 1),
                 ),
-                const SizedBox(width: 10),
-                const Text(
-                  'My Profile',
-                  style: TextStyle(
-                    color: Color.fromRGBO(124, 219, 253, 1),
-                    fontSize: 18.0,
-                  ),
-                ),
-              ],
+                onChanged: (value) {
+                  setState(() {
+                    _selectedOption = value!;
+                    _showDateInput =
+                        _selectedOption == "I AM EXPECTING ANOTHER CHILD";
+                    _showExpectingInput = _selectedOption == "EXPECTING";
+                  });
+                },
+              ),
             ),
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.04),
-            Stack(
-              children: [
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 2,
-                        color: const Color.fromRGBO(177, 177, 177, 1)),
-                    shape: BoxShape.circle,
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/Profile_image.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0.0,
-                  right: 0.0,
-                  child: Container(
-                    width: 40.0,
-                    height: 40.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        width: 3,
-                        color: const Color.fromRGBO(177, 177, 177, 1),
-                      ),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.camera_alt,
-                        size: 20,
-                      ),
-                      color: Colors.black,
-                      onPressed: () {
-                        // Add your camera button functionality here
-                      },
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.04),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 60.0),
-                        child: const Text(
-                          'Enter Your Name',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16.0,
-                            color: Color.fromRGBO(0, 124, 168, 1),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                    height: (MediaQuery.of(context).size.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.008),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 320, // Adjust the width as needed
-                      height: 30, // Adjust the height as needed
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50.0),
-                        border: Border.all(color: Colors.white),
-                        color: Colors.white,
-                      ),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Savan Mehta',
-                          hintStyle: TextStyle(
-                            color: Colors.grey,
-                          ),
-                          contentPadding: EdgeInsets.all(10.0),
-                        ),
-                        keyboardType: TextInputType.name,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.03),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Row(
-                    children: [
-                      Theme(
-                        data: ThemeData(
-                          unselectedWidgetColor:
-                              const Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Radio(
-                          value: "MOM",
-                          groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith((states) =>
-                              const Color.fromRGBO(124, 219, 253, 1)),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedOption = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      const Text(
-                        "MOM",
-                        style: TextStyle(fontSize: 14),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  width: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Row(
-                    children: [
-                      Theme(
-                        data: ThemeData(
-                          unselectedWidgetColor:
-                              const Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Radio(
-                          value: "DAD",
-                          groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith((states) =>
-                              const Color.fromRGBO(124, 219, 253, 1)),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedOption = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      const Text(
-                        "DAD",
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.001),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: 300,
-                  child: Row(
-                    children: [
-                      Theme(
-                        data: ThemeData(
-                          unselectedWidgetColor:
-                              const Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Radio(
-                          value: "I AM EXPECTING ANOTHER CHILD",
-                          groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith((states) =>
-                              const Color.fromRGBO(124, 219, 253, 1)),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedOption = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      const Text(
-                        "I AM EXPECTING ANOTHER CHILD",
-                        style: TextStyle(fontSize: 11),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.001),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Row(
-                    children: [
-                      Theme(
-                        data: ThemeData(
-                          unselectedWidgetColor:
-                              const Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Radio(
-                          value: "GUARDIAN",
-                          groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith((states) =>
-                              const Color.fromRGBO(124, 219, 253, 1)),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedOption = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      const Text(
-                        "GUARDIAN",
-                        style: TextStyle(fontSize: 14),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  width: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Row(
-                    children: [
-                      Theme(
-                        data: ThemeData(
-                          unselectedWidgetColor:
-                              const Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Radio(
-                          value: "EXPECTING",
-                          groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith((states) =>
-                              const Color.fromRGBO(124, 219, 253, 1)),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedOption = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      const Text(
-                        "EXPECTING",
-                        style: TextStyle(fontSize: 14),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-                height: (MediaQuery.of(context).size.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.02),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: 210,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Row(
-                    children: [
-                      Theme(
-                        data: ThemeData(
-                          unselectedWidgetColor:
-                              const Color.fromRGBO(196, 196, 196, 1),
-                        ),
-                        child: Radio(
-                          value: "TRYING TO CONCEIVE",
-                          groupValue: _selectedOption,
-                          fillColor: MaterialStateColor.resolveWith((states) =>
-                              const Color.fromRGBO(124, 219, 253, 1)),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedOption = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      const Text(
-                        "TRYING TO CONCEIVE",
-                        style: TextStyle(fontSize: 14),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     // Function
-            //   },
-            //   style: ElevatedButton.styleFrom(
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(50.0),
-            //     ),
-            //     padding:
-            //         const EdgeInsets.symmetric(vertical: 5.0, horizontal: 40.0),
-            //     primary: const Color.fromRGBO(0, 176, 240, 1),
-            //   ),
-            //   child: const Text(
-            //     'CONTINUE',
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       color: Colors.white,
-            //     ),
-            //   ),
-            // ),
+            Text(
+              name,
+              style: const TextStyle(fontSize: 14),
+            )
           ],
         ),
       ),
     );
   }
+
+  Widget dateInputContainer() {
+    return _showDateInput
+        ? Column(
+            children: [
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Container(
+                      width: 320,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        boxShadow: const [
+                          BoxShadow(
+                            color:
+                                Color.fromRGBO(41, 195, 250, 1), // Blue color
+                            offset: Offset(0, 0), // Adjust the offset as needed
+                            blurRadius: 4, // Adjust the blur radius as needed
+                          ),
+                        ],
+                      ),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Enter Due Date',
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                          ),
+                          contentPadding: EdgeInsets.all(10.0),
+                        ),
+                        keyboardType: TextInputType.datetime,
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => OtpScreen()),
+                  // );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 5.0, horizontal: 40.0),
+                  primary: const Color.fromRGBO(0, 176, 240, 1),
+                ),
+                child: const Text(
+                  'SAVE',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          )
+        : const SizedBox();
+  }
+
+  Widget ExpectingDetailsInputContainer() {
+    return _showExpectingInput
+        ? Column(
+            children: [
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 36.0, vertical: 8),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text('I am an...'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 300,
+                      height: 30,
+                      child: Row(
+                        children: [
+                          Theme(
+                            data: ThemeData(
+                              unselectedWidgetColor:
+                                  const Color.fromRGBO(196, 196, 196, 1),
+                            ),
+                            child: Radio(
+                              value: "EXPECTING MOTHER",
+                              groupValue: _selectedExpectingOption,
+                              fillColor: MaterialStateColor.resolveWith(
+                                  (states) =>
+                                      const Color.fromRGBO(124, 219, 253, 1)),
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedExpectingOption = value!;
+                                  _showExpectingInput =
+                                      _selectedExpectingOption ==
+                                          "EXPECTING MOTHER";
+                                });
+                              },
+                            ),
+                          ),
+                          const Text(
+                            "EXPECTING MOTHER",
+                            style: TextStyle(fontSize: 11),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 300,
+                      height: 30,
+                      child: Row(
+                        children: [
+                          Theme(
+                            data: ThemeData(
+                              unselectedWidgetColor:
+                                  const Color.fromRGBO(196, 196, 196, 1),
+                            ),
+                            child: Radio(
+                              value: "EXPECTING FATHER",
+                              groupValue: _selectedExpectingOption,
+                              fillColor: MaterialStateColor.resolveWith(
+                                  (states) =>
+                                      const Color.fromRGBO(124, 219, 253, 1)),
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedExpectingOption = value!;
+                                  _showExpectingInput =
+                                      _selectedExpectingOption ==
+                                          "EXPECTING FATHER";
+                                });
+                              },
+                            ),
+                          ),
+                          const Text(
+                            "EXPECTING FATHER",
+                            style: TextStyle(fontSize: 11),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Container(
+                  width: 320,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(41, 195, 250, 1), // Blue color
+                        offset: Offset(0, 0), // Adjust the offset as needed
+                        blurRadius: 4, // Adjust the blur radius as needed
+                      ),
+                    ],
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Enter Due Date',
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
+                      contentPadding: EdgeInsets.all(10.0),
+                    ),
+                    keyboardType: TextInputType.datetime,
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => OtpScreen()),
+                  // );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 5.0, horizontal: 40.0),
+                  primary: const Color.fromRGBO(0, 176, 240, 1),
+                ),
+                child: const Text(
+                  'SAVE',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          )
+        : const SizedBox();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MotheringAppBar_1(),
+      drawer: MotheringAppBarDrawer(),
+      resizeToAvoidBottomInset: true,
+      backgroundColor: const Color.fromRGBO(227, 248, 255, 1),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              const Subtitle(
+                containerHeight: 25,
+                containerWidth: 15,
+                enterText: 'My Profile',
+                textColor: Color.fromRGBO(124, 219, 253, 1),
+                containerColor: Color.fromRGBO(124, 219, 253, 1),
+              ),
+              SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.04,
+              ),
+              Stack(
+                children: [
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 2,
+                        color: const Color.fromRGBO(177, 177, 177, 1),
+                      ),
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: _image != null
+                            ? Image.file(
+                                _image!,
+                                width: 250,
+                                height: 250,
+                                fit: BoxFit.cover,
+                              ) as ImageProvider<Object>
+                            : const AssetImage(
+                                'assets/images/Profile_image.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      width: 40.0,
+                      height: 40.0,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          width: 3,
+                          color: const Color.fromRGBO(177, 177, 177, 1),
+                        ),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.camera_alt,
+                          size: 20,
+                        ),
+                        color: Colors.black,
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: ((builder) => bottomSheet()),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.04,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 50.0),
+                          child: const Text(
+                            'Enter Your Name',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.0,
+                              color: Color.fromRGBO(0, 124, 168, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.008,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 320,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50.0),
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          boxShadow: const [
+                            BoxShadow(
+                              color:
+                                  Color.fromRGBO(41, 195, 250, 1), // Blue color
+                              offset:
+                                  Offset(0, 0), // Adjust the offset as needed
+                              blurRadius: 4, // Adjust the blur radius as needed
+                            ),
+                          ],
+                        ),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Savan Mehta',
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                            ),
+                            contentPadding: EdgeInsets.all(10.0),
+                          ),
+                          keyboardType: TextInputType.datetime,
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.03,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        radioContainer('MOM'),
+                        radioContainer('DAD'),
+                      ],
+                    ),
+                    SizedBox(
+                      height: (MediaQuery.of(context).size.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.001,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 300,
+                          child: Row(
+                            children: [
+                              Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor:
+                                      const Color.fromRGBO(196, 196, 196, 1),
+                                ),
+                                child: Radio(
+                                  value: "I AM EXPECTING ANOTHER CHILD",
+                                  groupValue: _selectedOption,
+                                  fillColor: MaterialStateColor.resolveWith(
+                                      (states) => const Color.fromRGBO(
+                                          124, 219, 253, 1)),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedOption = value!;
+                                      _showDateInput = _selectedOption ==
+                                          "I AM EXPECTING ANOTHER CHILD";
+                                    });
+                                  },
+                                ),
+                              ),
+                              const Text(
+                                "I AM EXPECTING ANOTHER CHILD",
+                                style: TextStyle(fontSize: 11),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: (MediaQuery.of(context).size.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.001,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        radioContainer('GUARDIAN'),
+                        radioContainer('EXPECTING'),
+                      ],
+                    ),
+                    SizedBox(
+                      height: (MediaQuery.of(context).size.height -
+                              MediaQuery.of(context).padding.top) *
+                          0.02,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        radioContainer('TRYING TO CONCEIVE'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              dateInputContainer(),
+              ExpectingDetailsInputContainer(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
-
-// Widget bottomSheet() {
-//   return Container(
-//     height: 100.0,
-//     width: double.infinity,
-//     margin: const EdgeInsets.symmetric(
-//       horizontal: 20,
-//       vertical: 20,
-//     ),
-//     child: Column(
-//       children: <Widget>[
-//         const Text(
-//           "Choose Profile photo",
-//           style: TextStyle(
-//             fontSize: 20.0,
-//           ),
-//         ),
-//         const SizedBox(
-//           height: 20,
-//         ),
-//         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-//           IconButton(
-//             icon: const Icon(Icons.camera),
-//             onPressed: () {
-//               // takePhoto(ImageSource.camera);
-//             },
-//           ),
-//           Text('data'),
-//           IconButton(
-//             icon: const Icon(Icons.image),
-//             onPressed: () {
-//               // takePhoto(ImageSource.gallery);
-//             },
-//           ),
-//           Text('data')
-//         ])
-//       ],
-//     ),
-//   );
-// }
-
-// void takePhoto(ImageSource source) async {
-//   final pickedFile = await _picker.getImage(
-//     source: source,
-//   );
-//   setState(() {
-//     _imageFile = pickedFile;
-//   });
-// }
