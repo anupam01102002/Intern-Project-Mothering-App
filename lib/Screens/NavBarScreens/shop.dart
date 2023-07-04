@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mothering_app/CustomWidgets/MotheringAppBar_1.dart';
 import 'package:mothering_app/CustomWidgets/child_details_container.dart';
-import 'package:mothering_app/CustomWidgets/deliveryLocation.dart';
+import 'package:mothering_app/CustomWidgets/deliveryLocationContainer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/productcard_1.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
 import 'package:mothering_app/Screens/Shopping%20Section%20Screen/shopping.dart';
 import '../../CustomWidgets/custombutton.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class MotheringShopScreen extends StatelessWidget {
   @override
@@ -19,44 +20,7 @@ class MotheringShopScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Expanded(
-              child: Material(
-                elevation: 4,
-                child: Container(
-                  height: 40,
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_pin,
-                              color: Color.fromRGBO(150, 150, 150, 1),
-                            ),
-                            SizedBox(width: 8),
-                            Text(
-                              'Deliver to 365420',
-                              style: TextStyle(
-                                color: Color.fromRGBO(150, 150, 150, 1),
-                              ),
-                            ),
-                          ],
-                        ),
-                        ModalDeliveryLocation(
-                          playAreaName: 'playAreaName',
-                          playAreaLocation: 'playAreaLocation',
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
+            DeliveryLocationContainer(),
             const ChildDetailsContainer(),
             // Shop by Category Text
             const Subtitle(
@@ -78,10 +42,12 @@ class MotheringShopScreen extends StatelessWidget {
                       textColor: const Color.fromRGBO(0, 124, 168, 1),
                       buttonName: 'BOYS FASHION',
                       onPressed: () {
-                        Navigator.push(
+                        pushNewScreen(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => ShoppingScreen()),
+                          screen: ShoppingScreen(),
+                          withNavBar: false, // OPTIONAL VALUE. True by default.
+                          pageTransitionAnimation:
+                              PageTransitionAnimation.cupertino,
                         );
                       }),
                   CustomButton(

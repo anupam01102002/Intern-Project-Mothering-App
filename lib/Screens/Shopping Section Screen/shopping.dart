@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mothering_app/CustomWidgets/deliveryLocation.dart';
+import 'package:mothering_app/CustomWidgets/bottomNavigationBar_ShoppingScreen.dart';
+import 'package:mothering_app/CustomWidgets/deliveryLocationContainer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar_1.dart';
 import 'package:mothering_app/Screens/other%20Screens/item_details_screen.dart';
@@ -15,43 +16,7 @@ class ShoppingScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Expanded(
-              child: Material(
-                elevation: 4,
-                child: Container(
-                  height: 40,
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_pin,
-                              color: Color.fromRGBO(150, 150, 150, 1),
-                            ),
-                            SizedBox(width: 8),
-                            Text(
-                              'Deliver to 365420',
-                              style: TextStyle(
-                                color: Color.fromRGBO(150, 150, 150, 1),
-                              ),
-                            ),
-                          ],
-                        ),
-                        ModalDeliveryLocation(
-                          playAreaName: 'playAreaName',
-                          playAreaLocation: 'playAreaLocation',
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            DeliveryLocationContainer(),
             Row(
               children: [
                 ProductCard_2(
@@ -405,6 +370,7 @@ class ShoppingScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar_ShoppingScreen(),
     );
   }
 }
