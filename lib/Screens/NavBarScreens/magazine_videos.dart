@@ -8,7 +8,6 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
-import 'dart:typed_data';
 
 class MotheringMagazineScreen_Videos extends StatefulWidget {
   @override

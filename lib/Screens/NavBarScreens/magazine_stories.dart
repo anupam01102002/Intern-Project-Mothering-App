@@ -4,7 +4,6 @@ import 'package:mothering_app/CustomWidgets/motheringAppBarDrawer.dart';
 import 'package:mothering_app/CustomWidgets/motheringAppBar_4.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
 import 'package:mothering_app/Screens/NavBarScreens/magazine_videos.dart';
-import 'package:mothering_app/Screens/NavBarScreens/playArea.dart';
 import 'package:mothering_app/Screens/other%20Screens/magazineStoryDetails.dart';
 
 class MotheringMagazineScreen_Stories extends StatelessWidget {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mothering_app/CustomWidgets/commentBox.dart';
-import 'package:mothering_app/CustomWidgets/magazineStoriesContainer.dart';
 import 'package:mothering_app/CustomWidgets/subtitle.dart';
 import 'package:mothering_app/Screens/NavBarScreens/magazine_stories.dart';
 
